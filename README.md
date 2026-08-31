@@ -11,18 +11,18 @@ The portfolio explores how artificial intelligence and automated systems are gov
 
 ## 📚 Portfolio Contents
 
-Week	Topic	Status
-Week 1	Introduction to AI Governance and Assurance	✅ Complete
-Week 2	Ethical Frameworks for AI	✅ Complete
-Week 3	Australian Law, Privacy and AI Systems	✅ Complete
-Week 4	Probing AI Bias and Fairness	✅ Complete
-Week 5	AI Management Systems and ISO/IEC 42001	✅ Complete
-Week 6	To be added	⏳ Upcoming
-Week 7	To be added	⏳ Upcoming
-Week 8	To be added	⏳ Upcoming
-Week 9	To be added	⏳ Upcoming
-Week 10	To be added	⏳ Upcoming
----
+| Week | Topic | Status |
+|---|---|---|
+| [Week 1](./Week%201/) | Introduction to AI Governance and Assurance | ✅ Complete |
+| [Week 2](./Week%202/) | Ethical Frameworks for AI | ✅ Complete |
+| [Week 3](./Week%203/) | Australian Law, Privacy and AI Systems | ✅ Complete |
+| [Week 4](./Week%204/) | Probing AI Bias and Fairness | ✅ Complete |
+| [Week 5](./Week%205/) | AI Management Systems and ISO/IEC 42001 | ✅ Complete |
+| [Week 6](./Week%206/) | To be added | ⏳ Upcoming |
+| [Week 7](./Week%207/) | To be added | ⏳ Upcoming |
+| [Week 8](./Week%208/) | To be added | ⏳ Upcoming |
+| [Week 9](./Week%209/) | To be added | ⏳ Upcoming |
+| [Week 10](./Week%2010/) | To be added | ⏳ Upcoming |
 
 ## 🧭 Key Themes
 
