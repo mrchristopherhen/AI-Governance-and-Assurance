@@ -1,180 +1,189 @@
-# 🔐 Week 3 – Australian Law, Privacy and AI Systems
+# ⚖️ Week 4 – Probing AI Bias and Fairness
 
 ## 📘 Overview
 
-This week focused on the legal, social and cultural responsibilities that apply when AI systems are used in Australia. The activities examined the **Australian Privacy Principles (APPs)**, privacy controls in consumer AI products, and **Indigenous Data Sovereignty**.
+This week focused on bias and fairness in AI systems and how an AI system can appear accurate overall while still producing different outcomes for different groups.
 
-For the practical audit, I examined **OpenAI ChatGPT** as a consumer AI product and compared its privacy policy and available product controls against **APPs 1, 3, 6, 10 and 11**. The scenario involved a Rivergum University admissions officer, Priya, pasting student enquiry emails into a commercial AI tool to help draft replies without approval from IT or compliance.
+The activity involved a simulated AI hiring classifier used to decide which applicants were shortlisted for an interview. Management believed the system was accurate overall, but employees were concerned that some groups were being selected less often than others.
 
-The main question was whether this creates privacy implications for the university and the students whose information is being entered into the system.
-
----
-
-# ⚙️ Task 2 – Privacy Control Audit
-
-## 🔎 Switch Hunting
-
-I tested ChatGPT while **signed out**, without creating or logging into an account. This followed the lab suggestion to use a private browser session and avoid unnecessary sign-ups.
-
-The main privacy controls available to me were located under:
-
-**Settings → Data Controls**
-
-| Looking for | How far did I get? | Setting | Access | Default |
-|---|---|---|---|---|
-| **Training opt-out** | Found and could change it | **Improve the model for everyone** | Settings → Data Controls | **On** |
-| **History and retention** | Could only confirm through OpenAI documentation because chat history controls require an account | **Archived Chats** and Temporary Chat | Available after signing in | Standard chats are retained until deleted. Temporary Chats are automatically deleted after 30 days. |
-| **Export or deletion** | Could only confirm through OpenAI documentation because export is unavailable while logged out | **Export data** and **Delete account** | Available after signing in | User initiated. OpenAI states deleted data is generally removed within 30 days. |
-
-### Evidence
-
-While signed out, the **Data Controls** panel showed **Improve the model for everyone**, **Marketing measurement**, and **Personalized marketing** enabled by default.
-
-The other controls could not be tested directly without signing into an account, so I used OpenAI's Help Centre documentation to confirm how they operate.
-
-One thing I noticed was that some OpenAI documentation still refers to a **"Chat history & training"** setting, while the current product calls the setting **"Improve the model for everyone."** This demonstrates how documentation can sometimes lag behind changes made to a live product.
+I used a sample of 20 applicants across **Group A** and **Group B** to calculate selection rates, interpret the results using Fairlearn, investigate possible failure modes, design additional tests and recommend how the organisation should respond.
 
 ---
 
-# 🧾 Task 3 – Australian Privacy Principles Audit
+# 🔮 Task 1 – Prediction Before Calculating
 
-## APP 1, 3, 6, 10 and 11
+Before calculating the selection rates, I suspected that the classifier might not be applying the same standard to both groups.
 
-| APP | Requirement | What the policy says | What I observed | Judgement |
-|---|---|---|---|---|
-| **APP 1** | Open and transparent management of personal information | OpenAI publishes a dated privacy policy explaining the information it collects, how it is used, disclosure, retention, controls and user rights. Information about complaints and overseas processing is more general. | This was mainly assessed through the privacy policy rather than the product itself. | ⚠️ **Unclear / Partial** |
-| **APP 3** | Collection of solicited personal information | The policy states that OpenAI may collect account information, prompts and other content, communications, device and location information, and information publicly available on the internet for model development. | ChatGPT allowed prompts to be submitted while signed out, with the Privacy Policy available through the interface. | ⚠️ **Unclear** |
-| **APP 6** | Use or disclosure of personal information | The policy explains that content may be used to improve or train models and provides an option to opt out. | **Improve the model for everyone** was enabled by default in the signed-out session and had to be manually disabled. | ⚠️ **Unclear / Potential concern** |
-| **APP 10** | Quality of personal information | The policy provides ways to request correction or removal of inaccurate personal information, including inaccurate information produced about a person. | This could not be meaningfully tested without an account. | ⚠️ **Unclear** |
-| **APP 11** | Security of personal information | OpenAI states that it uses commercially reasonable technical, administrative and organisational measures to protect personal information. The public privacy policy does not provide detailed information about individual security controls. | No detailed security controls were visible through the signed-out interface. | ⚠️ **Unclear** |
+Looking at one successful applicant is not enough to determine whether the overall system is fair. For example, the fact that B01 scored 83 and was shortlisted shows that someone from Group B can be selected, but it does not tell us whether Group B applicants are being selected at the same rate as Group A.
+
+The same problem applies when looking only at whether higher scores generally lead to selection. The important question is whether applicants from both groups are being treated consistently.
+
+I therefore expected the group-level results to provide a clearer picture than individual examples.
 
 ---
 
-## 💭 My Assessment
+# 📊 Task 2 – Selection Rate Worksheet
 
-The most difficult part of this task was avoiding the assumption that a privacy policy automatically proves compliance.
+| Group | Selected | Total | Selection rate |
+|---|---:|---:|---:|
+| **Group A** | 6 | 10 | **60%** |
+| **Group B** | 3 | 10 | **30%** |
 
-For example, OpenAI states that it uses security measures to protect personal information, but that statement by itself does not allow me to verify whether those controls satisfy APP 11. The same problem appears when assessing how information is used. A policy can explain what a company intends to do, but the actual product settings are also important.
+The difference between the two groups is **30 percentage points**.
 
-The training setting was particularly interesting because **Improve the model for everyone** was enabled by default. This means a user needs to know the setting exists, find it, and manually disable it if they do not want their conversations used for model improvement.
+Group A applicants were shortlisted at a rate of 60%, compared with 30% for Group B. This means Group A was shortlisted at twice the rate of Group B within this sample.
 
----
+It is important to describe this as a **30 percentage-point difference**, rather than saying the classifier was "30% less accurate." Selection rate and accuracy measure different things.
 
-# 🔍 Task 4 – Second Opinion
+Another important pattern in the supplied data is that the two groups appear to have different qualification-score cut-offs. Based on the values recorded in the activity, Group A applicants were shortlisted from a score of **66**, while Group B applicants needed a score of **75** or higher. A Group B applicant with a score of 72 was rejected while a Group A applicant with a lower score of 66 was shortlisted.
 
-## Row 1 – APP 11 and Microsoft Copilot
-
-The original judgement treated Microsoft's security information and ISO 27001 certification as enough evidence to declare the product compliant, even though the product itself had not been checked.
-
-I do not think that is enough evidence.
-
-An organisation-wide security certification can provide evidence that security processes exist, but it does not automatically prove how a particular AI product handles personal information.
-
-### Revised Judgement
-
-⚠️ **Unclear**
-
-Microsoft's ISO 27001 certification is a positive indicator, but I would still need product-specific information about how Copilot protects conversation data before determining that it complies with APP 11.
+This does not prove why the difference occurred, but it gives me another reason to investigate whether the classifier is treating the two groups consistently.
 
 ---
 
-## Row 2 – APP 6 and Microsoft Copilot
+# 💻 Part B – Fairlearn Output
 
-The second row concluded that Copilot was compliant because the policy did not mention training and a training setting could not be found.
+I worked through the Fairlearn activity and compared its results with my manual calculation.
 
-I think this is another example where there is not enough evidence to make a clear judgement.
+```text
+Selection rate by group:
+group
+Group A    0.6
+Group B    0.3
+Name: selected, dtype: float64
 
-A policy not mentioning something does not prove that the practice does not occur. It could also mean that the information is unclear or located somewhere else.
+Difference between groups (max - min): 0.3
+```
 
-### Revised Judgement
+The Fairlearn result matches the manual calculation:
 
-⚠️ **Unclear**
+- **Group A:** 60%
+- **Group B:** 30%
+- **Difference:** 30 percentage points
 
-I would need further evidence, such as Microsoft's product documentation, enterprise terms or information about administrator controls, before determining whether conversation content is used for model training or another secondary purpose.
+Fairlearn therefore identifies a measurable difference between the outcomes for the two groups.
 
-### 💭 Reflection
-
-This exercise reinforced that **a lack of evidence should normally result in an unclear judgement rather than automatically assuming compliance**.
-
-I applied the same approach to my ChatGPT audit. For APP 11, I could find general statements about security measures but could not independently verify the controls through the consumer product. I therefore classified it as unclear rather than compliant.
-
----
-
-# 📌 Key Findings
-
-The audit identified three main privacy concerns.
-
-1. **Model improvement is enabled by default.** ChatGPT's **Improve the model for everyone** setting was enabled when I tested the product while signed out. A user needs to find and disable this setting if they do not want their conversations used for model improvement.
-2. **Important controls require an account.** A signed-out user can access some privacy controls, but features such as chat history management, data export and account deletion require signing in.
-3. **Public privacy information cannot prove every security control.** OpenAI states that it uses technical, administrative and organisational security measures, but the public privacy policy does not provide enough detail to independently assess all of those controls.
+However, this result does not prove that discrimination occurred. It identifies a **disparity that should be investigated further**. More information is needed before determining what caused the difference or whether it represents unfair treatment.
 
 ---
 
-# 🏫 Response to Rivergum University
+# 🔎 Task 3 – Interpreting the Fairlearn Result
 
-## What is Rivergum's exposure if Priya keeps pasting student emails into ChatGPT?
+## Which group had the higher selection rate?
 
-I think Rivergum University would have a genuine privacy and governance risk if Priya continued pasting student emails into a public consumer AI service without approval.
+**Group A** had the higher selection rate at 60%, compared with 30% for Group B.
 
-Student enquiry emails can contain personal information and may sometimes include sensitive information relating to health, disability, cultural circumstances or other personal matters. By copying an email into ChatGPT, that information is being provided to a third-party service for a purpose the student may not expect.
+## How large was the difference?
 
-The risk becomes more significant because the tool has not been approved by Rivergum's IT or compliance teams. This means the university may not have completed a privacy assessment, established an appropriate agreement with the provider, or determined how student information is stored, processed, retained and secured.
+The difference was **30 percentage points**. Group A applicants were shortlisted at twice the rate of Group B applicants within this sample.
 
-The default model improvement setting also creates an additional concern because users need to actively disable it.
+## Does this suggest the classifier should be investigated for possible bias?
 
-I would recommend that Rivergum **stop entering identifiable student information into an unapproved consumer AI service** until the tool has been formally assessed. If the university wants staff to use generative AI, it should establish an approved service, clear rules about what information can be entered, appropriate privacy controls and staff training.
+Yes.
 
-This is not simply a productivity issue. It is an AI governance and privacy issue because the university remains responsible for how student information is handled.
+A 30 percentage-point difference is large enough to justify further investigation. The supplied data also suggests that Group B applicants may require a higher qualification score before being shortlisted.
 
----
+This does not tell us why the difference exists, but it provides enough evidence to question whether the classifier is applying a consistent standard across both groups.
 
-# 🌏 Indigenous Data Sovereignty
+## Does the selection-rate difference prove discrimination occurred?
 
-## How Could Indigenous Data Sovereignty Affect an AI System?
+No.
 
-Indigenous Data Sovereignty highlights an important limitation of looking at AI governance only through individual privacy law.
+A difference in selection rates shows that the groups received different outcomes, but it does not explain the cause.
 
-The Privacy Act mainly focuses on information about identifiable individuals. Indigenous Data Sovereignty also considers the rights and interests of **communities** in relation to data about their people, culture, knowledge and communities.
+The difference could potentially come from the training data, the way qualification scores were calculated, other features used by the model, differences within the applicant sample, or another part of the hiring process.
 
-For example, a recommender system could potentially use aggregated or de-identified data relating to an Aboriginal or Torres Strait Islander community. The data may no longer identify individual people, but decisions made using that information could still affect the community.
+The result should therefore be treated as evidence for further investigation rather than proof of discrimination.
 
-This means developers should consider more than whether data has technically been de-identified. They should also consider who collected the data, what the original purpose was, whether the relevant community agreed to the new use, who controls how the data is used, whether the AI system could misrepresent or disadvantage the community, and how the community can challenge the use of the data.
+## What other information would I want before making a final judgement?
 
-The **Maiam nayri Wingara Indigenous Data Sovereignty principles** encourage greater Indigenous control over how Indigenous data is collected, accessed, interpreted and used.
+Before deciding whether the system is fair, I would want to know:
 
-Federation University's **FUA Copyright Deed** provides another useful example through its treatment of **Indigenous Cultural and Intellectual Property (ICIP)**. Where ICIP is involved, permission from a copyright owner may not be enough by itself. Relevant ICIP Rights Holders and cultural protocols also need to be considered.
+- What **Group A** and **Group B** actually represent.
+- How the **qualification score** is calculated and whether the same process is used for everyone.
+- What other information the classifier uses when making its decision.
+- What historical hiring data was used to train the model.
+- Whether the 20 applicants are representative of the organisation's normal applicant pool.
+- Whether similar differences appear across larger samples and multiple recruitment rounds.
+- Whether there is reliable ground truth showing which applicants should have been shortlisted.
 
-I think the same idea is important when developing AI systems. Meeting the minimum requirements of privacy law does not automatically mean that the use of data is culturally appropriate or ethically responsible.
-
----
-
-# 💭 Discussion Reflection
-
-The hardest principle for me to assess was **APP 11**, because security claims are difficult to verify from a privacy policy alone. Statements such as "commercially reasonable" security measures provide some information, but they do not explain enough about the actual technical controls to independently determine compliance.
-
-To make stronger judgements on the unclear areas, I would want access to additional evidence such as product-specific security documentation, enterprise agreements, data processing terms, independent security audits and the privacy controls available to signed-in users.
-
-One thing that surprised me was that ChatGPT still exposed the **Improve the model for everyone** setting while signed out. However, other controls such as history management and data export were only available after signing in.
+This additional information would help determine whether the difference is caused by bias in the system or another factor.
 
 ---
 
-# 🧠 Week 3 Reflection
+# 🧩 Task 4 – Finding the Failure Mode
 
-This week showed me that using AI responsibly involves more than checking whether the technology works correctly. Organisations also need to understand what information is being entered into an AI system, where that information goes, why it is being collected and who remains responsible for protecting it.
+| Possible failure mode | Evidence to look for | How I would test it | Possible mitigation |
+|---|---|---|---|
+| **Historical bias** | Previous hiring data may show that Group A applicants were selected more often than similarly qualified Group B applicants. | Compare historical shortlisting decisions between applicants from both groups with similar qualification scores. If the same pattern appears in the historical data, this would provide evidence that the model may have learned an existing disparity. | Review and clean the training data before retraining the model. Historical decisions that reflect unfair patterns should not simply be treated as correct examples for the model to learn from. |
+| **Proxy variables** | The model may be using information that is strongly connected to group membership, even if the group itself is not directly used. Examples could include postcode, name or referring institution. | Review the features used by the model and test whether changing a suspected proxy while keeping the rest of an applicant's information the same changes the decision. | Remove inappropriate features where possible and test the model again. Feature removal alone may not solve the problem, so fairness testing should continue after retraining. |
+| **Weak fairness monitoring** | Management focused on overall accuracy while the difference between groups was only identified after employees raised concerns. | Review the organisation's testing and deployment process to determine whether group-level fairness metrics were checked before and after deployment. | Make fairness testing part of the approval process for new models and continue monitoring group-level outcomes after deployment. |
 
-The Rivergum scenario demonstrated how easily **shadow AI** can create governance problems. Priya may only be trying to save time when responding to students, but copying student emails into an unapproved AI service can create privacy risks that the organisation may not even know exist.
+### 💭 My Assessment
 
-I also found the Indigenous Data Sovereignty section important because it demonstrates that legal compliance is not always the same as responsible governance. An organisation might technically satisfy privacy requirements while still using community data in a way that ignores cultural ownership, expectations or appropriate consultation.
+I think all three failure modes are possible based on the scenario, but the current evidence does not tell us which one caused the difference.
 
-From a cybersecurity perspective, this week reinforced the connection between **privacy, security and AI governance**. Protecting information is not only about preventing unauthorised access. It also means controlling where data is sent, understanding how third parties use it and making sure technology is being used within appropriate organisational policies.
+The important next step would be to test each explanation rather than assuming that the selection-rate difference automatically identifies the cause.
 
 ---
 
-# 📚 References
+# 🔴 Task 5 – Red-Team the Hiring System
 
-- [OpenAI Privacy Policy](https://openai.com/policies/privacy-policy/)
-- [OpenAI Data Controls FAQ](https://help.openai.com/en/articles/7730893-data-controls-faq)
-- [OpenAI: How to Delete and Archive Chats](https://help.openai.com/en/articles/8809935-how-to-delete-and-archive-chats-in-chatgpt)
-- [Office of the Australian Information Commissioner – Australian Privacy Principles](https://www.oaic.gov.au/privacy/australian-privacy-principles)
-- [Maiam nayri Wingara – Indigenous Data Sovereignty](https://www.maiamnayriwingara.org/)
+I would perform three additional tests before allowing the organisation to rely on the classifier.
+
+| Test | What would I compare? | What result would concern me? |
+|---|---|---|
+| **Similarly qualified applicant test** | Compare the decisions for Group A and Group B applicants within similar qualification-score ranges. | I would be concerned if Group B applicants were rejected more often than Group A applicants despite having similar qualification scores. |
+| **Additional demographic testing** | Compare outcomes across other relevant demographic groups and, where appropriate, combinations of characteristics. | I would be concerned if another group experienced a much lower selection rate that was hidden by only comparing Group A and Group B overall. |
+| **Testing over time** | Compare selection rates across multiple recruitment rounds rather than relying on one sample of 20 applicants. | I would be concerned if the difference remained consistent or became larger over time. This could indicate that the problem is systematic rather than a one-off result from a small sample. |
+
+These tests would provide a broader picture of the classifier's behaviour.
+
+If reliable ground-truth labels were available showing which applicants genuinely met the shortlisting criteria, I would also compare error rates such as **false negatives between groups**. Without ground truth, however, I would not describe rejected applicants as false negatives simply because they had a particular qualification score.
+
+---
+
+# 🛡️ Task 6 – Mitigation and Governance
+
+Before the organisation continues using the classifier, I would recommend actions across four areas.
+
+## 📂 Data
+
+The data or machine learning team should review the historical training data to determine whether both groups are properly represented and whether previous shortlisting decisions contain patterns that could introduce bias.
+
+If historically unfair decisions are being used as training labels, retraining the model on the same data could reproduce the same problem.
+
+## 🧪 Testing
+
+Fairness testing should become a required part of model testing before deployment and after retraining.
+
+This should include selection rates across relevant groups and, where reliable ground truth exists, error-rate measures such as false negatives.
+
+The organisation should define and document what level of disparity requires investigation or prevents deployment rather than choosing an arbitrary threshold after seeing the results.
+
+## 👥 Human Oversight
+
+The classifier should support hiring decisions rather than operate as the final decision-maker.
+
+Human recruiters should be able to review automated decisions, particularly when monitoring identifies a possible disparity. Applicants should also have a clear way to request human review or challenge an automated shortlisting decision.
+
+## 📈 Monitoring and Governance
+
+Fairness should continue to be monitored after deployment rather than being treated as a one-time test.
+
+The organisation should assign responsibility for monitoring the system, regularly review group-level outcomes and establish a clear process for escalating concerns. If a significant unexplained disparity appears, the organisation should be prepared to pause the system while the cause is investigated.
+
+---
+
+# 🧠 Week 4 Reflection
+
+This week showed me why overall accuracy is not enough when evaluating an AI system. A model can appear to perform well when looking at one overall number while still producing very different outcomes for different groups.
+
+The hiring example made this particularly clear. Group A had a 60% selection rate while Group B had a 30% selection rate. That difference does not automatically prove discrimination, but it is a strong enough signal that the system should be investigated further.
+
+I also found the failure-mode activity useful because it moved the analysis beyond simply identifying a disparity. Historical data, model features, proxy variables, testing practices and weak governance could all contribute to unfair outcomes. This means fairness needs to be considered throughout the AI lifecycle rather than checked once after deployment.
+
+From a governance perspective, the biggest lesson for me was that **fairness metrics should be treated as evidence for investigation rather than automatic proof of why a disparity occurred**. Human oversight, ongoing monitoring and clear accountability are still needed before an organisation can make responsible decisions about whether an AI system should continue to be used.
+
+---
 
