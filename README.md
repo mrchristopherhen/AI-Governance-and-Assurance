@@ -24,6 +24,8 @@ The portfolio explores how artificial intelligence and automated systems are gov
 | [Week 9](./Week%209/) | To be added | ⏳ Upcoming |
 | [Week 10](./Week%2010/) | To be added | ⏳ Upcoming |
 
+---
+
 ## 🧭 Key Themes
 
 Throughout this portfolio, I will examine:
