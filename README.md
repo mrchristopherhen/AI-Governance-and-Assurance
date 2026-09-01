@@ -9,7 +9,7 @@ The portfolio explores how artificial intelligence and automated systems are gov
 
 ---
 
-## 📚 Portfolio Contents
+## Portfolio Contents
 
 | Week | Topic | Status |
 |---|---|---|
@@ -26,7 +26,7 @@ The portfolio explores how artificial intelligence and automated systems are gov
 
 ---
 
-## 🧭 Key Themes
+## Key Themes
 
 Throughout this portfolio, I will examine:
 
@@ -40,7 +40,7 @@ Throughout this portfolio, I will examine:
 
 ---
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```text
 AI-Governance-and-Assurance/
