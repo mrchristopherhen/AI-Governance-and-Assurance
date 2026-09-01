@@ -1,12 +1,12 @@
-# 🤖 Week 1 – Introduction to AI Governance and Assurance
+# Week 1 – Introduction to AI Governance and Assurance
 
-## 📘 Overview
+## Overview
 
 This week’s activities introduced the foundations of AI governance and assurance by examining real-world AI incidents, exploring established AI risk frameworks, and identifying AI systems used in everyday life. The exercises highlighted that AI governance extends beyond technical implementation and requires consideration of ethics, accountability, transparency, and the impacts that AI systems can have on individuals and society.
 
 ---
 
-# 📂 Task 1 – AI Incident Database
+# Task 1 – AI Incident Database
 
 ## Overview
 
@@ -42,7 +42,7 @@ The [AI Incident Database (AIID)](https://incidentdatabase.ai/) is a publicly ac
 
 ---
 
-## 🔎 Reports and Alleged Causes – Incident 57
+## Reports and Alleged Causes – Incident 57
 
 When I reviewed the Robodebt entry, AIID listed 39 supporting reports. These included articles from organisations such as the ABC, SBS, *The Guardian*, and *The Sydney Morning Herald*, as well as court decisions, parliamentary inquiries, official government reports, and the Royal Commission.
 
@@ -52,7 +52,7 @@ The AIID separates the incident itself from the evidence supporting it. Multiple
 
 ---
 
-## 💭 Reflection
+## Reflection
 
 This activity changed the way I think about AI governance. Before this week I mostly associated AI risks with advanced machine learning models, but Robodebt showed that poorly governed automated systems can be just as harmful. As someone studying cybersecurity, I can already see strong links between AI governance and security governance, particularly around accountability, risk management, and protecting people from technology that is not properly controlled.
 
@@ -66,7 +66,7 @@ This activity changed the way I think about AI governance. Before this week I mo
 
 ---
 
-# 🧭 Task 2 – MIT AI Risk Repository
+# Task 2 – MIT AI Risk Repository
 
 ## Overview
 
@@ -100,7 +100,7 @@ These classifications show that both incidents involved more than technical fail
 
 ---
 
-## ⚙️ Causal Taxonomy Classification – Robodebt
+## Causal Taxonomy Classification – Robodebt
 
 | Causal factor | Classification | Reasoning |
 |---|---|---|
@@ -112,7 +112,7 @@ The classification is not entirely clear-cut. The automated system directly cont
 
 ---
 
-## 💭 Reflection
+## Reflection
 
 This activity showed me that AI incidents rarely fit into a single category. Technical limitations, organisational decisions, governance failures, and human oversight all contribute to the final outcome. Using the MIT AI Risk Repository helped me move beyond describing an incident and instead analyse why it occurred and which risks were most significant.
 
@@ -125,7 +125,7 @@ This activity showed me that AI incidents rarely fit into a single category. Tec
 
 ---
 
-# 📱 Task 3 – AI in My Daily Life
+# Task 3 – AI in My Daily Life
 
 ## AI Systems I Use
 
@@ -138,13 +138,13 @@ This activity showed me that AI incidents rarely fit into a single category. Tec
 
 ---
 
-## 💭 Reflection
+## Reflection
 
 This exercise made me realise how often I interact with AI without consciously thinking about it. While tools such as ChatGPT are obvious examples, systems like recommender algorithms, facial recognition, and spam filtering have become routine parts of everyday technology. Each performs a different role, but they all raise important questions about accuracy, transparency, privacy, and human oversight.
 
 ---
 
-# 🧠 Week 1 Reflection
+# Week 1 Reflection
 
 As someone studying cybersecurity, I found strong parallels between AI governance and information security governance. Both disciplines emphasise risk management, accountability, transparency, and protecting people from unintended consequences arising from technology.
 
