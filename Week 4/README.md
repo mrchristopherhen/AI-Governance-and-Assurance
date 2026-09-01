@@ -1,6 +1,6 @@
-# ⚖️ Week 4 – Probing AI Bias and Fairness
+# Week 4 – Probing AI Bias and Fairness
 
-## 📘 Overview
+## Overview
 
 This week focused on bias and fairness in AI systems and how an AI system can appear accurate overall while still producing different outcomes for different groups.
 
@@ -10,7 +10,7 @@ I used a sample of 20 applicants across **Group A** and **Group B** to calculate
 
 ---
 
-# 🔮 Task 1 – Prediction Before Calculating
+# Task 1 – Prediction Before Calculating
 
 Before calculating the selection rates, I suspected that the classifier might not be applying the same standard to both groups.
 
@@ -22,7 +22,7 @@ I therefore expected the group-level results to provide a clearer picture than i
 
 ---
 
-# 📊 Task 2 – Selection Rate Worksheet
+# Task 2 – Selection Rate Worksheet
 
 | Group | Selected | Total | Selection rate |
 |---|---:|---:|---:|
@@ -41,7 +41,7 @@ This does not prove why the difference occurred, but it gives me another reason 
 
 ---
 
-# 💻 Part B – Fairlearn Output
+# Part B – Fairlearn Output
 
 I worked through the Fairlearn activity and compared its results with my manual calculation.
 
@@ -67,7 +67,7 @@ However, this result does not prove that discrimination occurred. It identifies 
 
 ---
 
-# 🔎 Task 3 – Interpreting the Fairlearn Result
+# Task 3 – Interpreting the Fairlearn Result
 
 ## Which group had the higher selection rate?
 
@@ -111,7 +111,7 @@ This additional information would help determine whether the difference is cause
 
 ---
 
-# 🧩 Task 4 – Finding the Failure Mode
+# Task 4 – Finding the Failure Mode
 
 | Possible failure mode | Evidence to look for | How I would test it | Possible mitigation |
 |---|---|---|---|
@@ -119,7 +119,7 @@ This additional information would help determine whether the difference is cause
 | **Proxy variables** | The model may be using information that is strongly connected to group membership, even if the group itself is not directly used. Examples could include postcode, name or referring institution. | Review the features used by the model and test whether changing a suspected proxy while keeping the rest of an applicant's information the same changes the decision. | Remove inappropriate features where possible and test the model again. Feature removal alone may not solve the problem, so fairness testing should continue after retraining. |
 | **Weak fairness monitoring** | Management focused on overall accuracy while the difference between groups was only identified after employees raised concerns. | Review the organisation's testing and deployment process to determine whether group-level fairness metrics were checked before and after deployment. | Make fairness testing part of the approval process for new models and continue monitoring group-level outcomes after deployment. |
 
-### 💭 My Assessment
+### My Assessment
 
 I think all three failure modes are possible based on the scenario, but the current evidence does not tell us which one caused the difference.
 
@@ -127,7 +127,7 @@ The important next step would be to test each explanation rather than assuming t
 
 ---
 
-# 🔴 Task 5 – Red-Team the Hiring System
+# Task 5 – Red-Team the Hiring System
 
 I would perform three additional tests before allowing the organisation to rely on the classifier.
 
@@ -143,7 +143,7 @@ If reliable ground-truth labels were available showing which applicants genuinel
 
 ---
 
-# 🛡️ Task 6 – Mitigation and Governance
+# Task 6 – Mitigation and Governance
 
 Before the organisation continues using the classifier, I would recommend actions across four areas.
 
@@ -153,7 +153,7 @@ The data or machine learning team should review the historical training data to 
 
 If historically unfair decisions are being used as training labels, retraining the model on the same data could reproduce the same problem.
 
-## 🧪 Testing
+## Testing
 
 Fairness testing should become a required part of model testing before deployment and after retraining.
 
@@ -161,13 +161,13 @@ This should include selection rates across relevant groups and, where reliable g
 
 The organisation should define and document what level of disparity requires investigation or prevents deployment rather than choosing an arbitrary threshold after seeing the results.
 
-## 👥 Human Oversight
+## Human Oversight
 
 The classifier should support hiring decisions rather than operate as the final decision-maker.
 
 Human recruiters should be able to review automated decisions, particularly when monitoring identifies a possible disparity. Applicants should also have a clear way to request human review or challenge an automated shortlisting decision.
 
-## 📈 Monitoring and Governance
+## Monitoring and Governance
 
 Fairness should continue to be monitored after deployment rather than being treated as a one-time test.
 
@@ -175,7 +175,7 @@ The organisation should assign responsibility for monitoring the system, regular
 
 ---
 
-# 🧠 Week 4 Reflection
+# Week 4 Reflection
 
 This week showed me why overall accuracy is not enough when evaluating an AI system. A model can appear to perform well when looking at one overall number while still producing very different outcomes for different groups.
 
@@ -186,4 +186,3 @@ I also found the failure-mode activity useful because it moved the analysis beyo
 From a governance perspective, the biggest lesson for me was that **fairness metrics should be treated as evidence for investigation rather than automatic proof of why a disparity occurred**. Human oversight, ongoing monitoring and clear accountability are still needed before an organisation can make responsible decisions about whether an AI system should continue to be used.
 
 ---
-
