@@ -1,6 +1,6 @@
-# ⚖️ Week 2 – Ethical Frameworks for AI
+# Week 2 – Ethical Frameworks for AI
 
-## 📘 Overview
+## Overview
 
 This week focused on applying ethical frameworks to real-world AI incidents. I examined the **OECD AI Principles**, **Australia's AI Ethics Principles**, and the **ACS Code of Professional Ethics** and compared how each framework approaches issues such as safety, transparency, accountability, fairness and professional responsibility.
 
@@ -8,7 +8,7 @@ My assigned incident was **AIID 545, involving Tessa**, a chatbot used by the Na
 
 ---
 
-# 🤖 Task 1 – First Impressions
+# Task 1 – First Impressions
 
 ## AIID 545 – Tessa and the National Eating Disorders Association
 
@@ -25,7 +25,7 @@ The two things that concerned me most were:
 
 I classified the incident as **Generative AI**. Tessa was originally designed as a rule-based chatbot providing scripted responses, but the incident scenario states that generative AI functionality was later introduced into the platform.
 
-### 💭 Revisiting My First Impression
+### Revisiting My First Impression
 
 After applying the ethical frameworks, my original impression still mostly holds, but I now think the problem was much broader than simply replacing human support with a chatbot.
 
@@ -35,31 +35,31 @@ I still believe AI could potentially support trained professionals in this area,
 
 ---
 
-# 🗺️ Task 2 – Ethical Framework Mapping
+# Task 2 – Ethical Framework Mapping
 
 | Framework | Principle | Judgement | Justification |
 |---|---|---|---|
-| **OECD** | Inclusive growth, sustainable development and well-being | ❌ Violated | Tessa was intended to support people at risk of eating disorders but instead gave advice that could worsen the very harm it was designed to prevent. |
-| **OECD** | Human rights and democratic values, including fairness and privacy | ❌ Violated | The system was used with a vulnerable population and produced advice capable of undermining their wellbeing and autonomy. |
-| **OECD** | Transparency and explainability | ❌ Violated | NEDA stated that it did not know generative AI functionality had been introduced, while users were given harmful advice without a clear explanation of how or why the system generated it. |
-| **OECD** | Robustness, security and safety | ❌ Violated | Tessa failed to operate safely within its intended purpose and generated potentially harmful eating and weight-loss advice. |
-| **OECD** | Accountability | ⚠️ Unclear | Tessa was developed by Cass and deployed by NEDA, while NEDA claimed the vendor introduced generative functionality without its knowledge. Responsibility therefore appears divided between multiple organisations. |
-| **Australia** | Human, societal and environmental wellbeing | ❌ Violated | A system intended to support people with eating disorders instead produced advice that could contribute to further harm. |
-| **Australia** | Human-centred values | ❌ Violated | Replacing human support with a chatbot in a sensitive context, followed by harmful advice, failed to adequately protect the needs and autonomy of vulnerable users. |
-| **Australia** | Fairness | ⚠️ Unclear | The incident demonstrates harm to a vulnerable population, but the available evidence does not clearly show discriminatory or unequal treatment between different groups. |
-| **Australia** | Privacy protection and security | ⚠️ Unclear | The incident information does not establish that personal information was improperly accessed, disclosed, or inadequately secured. |
-| **Australia** | Reliability and safety | ❌ Violated | Tessa produced advice directly inconsistent with its intended role of supporting people affected by eating disorders. |
-| **Australia** | Transparency and explainability | ❌ Violated | NEDA reportedly did not know generative functionality had been introduced, demonstrating a significant lack of transparency between the developer and deploying organisation. |
-| **Australia** | Contestability | ⚠️ Unclear | Users publicly challenged Tessa's advice and the system was eventually removed, but it is unclear whether an accessible formal process existed for challenging its outputs. |
-| **Australia** | Accountability | ❌ Violated | Appropriate responsibility and oversight were not maintained across Tessa's lifecycle, particularly when its functionality changed without NEDA reportedly knowing. |
-| **ACS** | Honesty | ❌ Violated | NEDA initially disputed publicly reported evidence of harmful responses before the screenshots were verified, raising concerns about openness and truthful communication. |
-| **ACS** | Trustworthiness | ❌ Violated | Deploying a system to vulnerable users without maintaining adequate knowledge, testing, oversight and control of its capabilities conflicts with trustworthy ICT practice. |
-| **ACS** | Respect for Others | ❌ Violated | The system exposed vulnerable users to potentially harmful advice instead of minimising risks to those affected by the technology. |
-| **ACS** | Respect for the Profession | ❌ Violated | The failure to adequately govern and monitor a high-risk support system undermined responsible use of ICT and public confidence in technology. |
+| **OECD** | Inclusive growth, sustainable development and well-being | Violated | Tessa was intended to support people at risk of eating disorders but instead gave advice that could worsen the very harm it was designed to prevent. |
+| **OECD** | Human rights and democratic values, including fairness and privacy | Violated | The system was used with a vulnerable population and produced advice capable of undermining their wellbeing and autonomy. |
+| **OECD** | Transparency and explainability | Violated | NEDA stated that it did not know generative AI functionality had been introduced, while users were given harmful advice without a clear explanation of how or why the system generated it. |
+| **OECD** | Robustness, security and safety | Violated | Tessa failed to operate safely within its intended purpose and generated potentially harmful eating and weight-loss advice. |
+| **OECD** | Accountability | Unclear | Tessa was developed by Cass and deployed by NEDA, while NEDA claimed the vendor introduced generative functionality without its knowledge. Responsibility therefore appears divided between multiple organisations. |
+| **Australia** | Human, societal and environmental wellbeing | Violated | A system intended to support people with eating disorders instead produced advice that could contribute to further harm. |
+| **Australia** | Human-centred values | Violated | Replacing human support with a chatbot in a sensitive context, followed by harmful advice, failed to adequately protect the needs and autonomy of vulnerable users. |
+| **Australia** | Fairness | Unclear | The incident demonstrates harm to a vulnerable population, but the available evidence does not clearly show discriminatory or unequal treatment between different groups. |
+| **Australia** | Privacy protection and security | Unclear | The incident information does not establish that personal information was improperly accessed, disclosed, or inadequately secured. |
+| **Australia** | Reliability and safety | Violated | Tessa produced advice directly inconsistent with its intended role of supporting people affected by eating disorders. |
+| **Australia** | Transparency and explainability | Violated | NEDA reportedly did not know generative functionality had been introduced, demonstrating a significant lack of transparency between the developer and deploying organisation. |
+| **Australia** | Contestability | Unclear | Users publicly challenged Tessa's advice and the system was eventually removed, but it is unclear whether an accessible formal process existed for challenging its outputs. |
+| **Australia** | Accountability | Violated | Appropriate responsibility and oversight were not maintained across Tessa's lifecycle, particularly when its functionality changed without NEDA reportedly knowing. |
+| **ACS** | Honesty | Violated | NEDA initially disputed publicly reported evidence of harmful responses before the screenshots were verified, raising concerns about openness and truthful communication. |
+| **ACS** | Trustworthiness | Violated | Deploying a system to vulnerable users without maintaining adequate knowledge, testing, oversight and control of its capabilities conflicts with trustworthy ICT practice. |
+| **ACS** | Respect for Others | Violated | The system exposed vulnerable users to potentially harmful advice instead of minimising risks to those affected by the technology. |
+| **ACS** | Respect for the Profession | Violated | The failure to adequately govern and monitor a high-risk support system undermined responsible use of ICT and public confidence in technology. |
 
 ---
 
-# 💬 Task 3 – Areas of Disagreement
+# Task 3 – Areas of Disagreement
 
 There were several principles where I did not think the available evidence justified a clear violation.
 
@@ -71,9 +71,9 @@ This showed me that a serious AI incident does not automatically mean that every
 
 ---
 
-# ⚖️ Task 4 – Where the Frameworks Disagree
+# Task 4 – Where the Frameworks Disagree
 
-## 🔎 Point of Divergence
+## Point of Divergence
 
 Although the frameworks share many similar principles, one important difference in the Tessa incident is how they approach **contestability and professional responsibility**.
 
@@ -89,7 +89,7 @@ Using the **OECD AI Principles**, I would focus more broadly on who was accounta
 
 Using the **ACS Code of Professional Ethics** would shift my attention towards the ICT professionals involved. A developer who became aware that Tessa was providing potentially harmful advice would have professional responsibilities relating to trustworthiness, communicating risks, minimising harm and acting responsibly rather than simply assuming that responsibility belonged to the organisation.
 
-## 👨‍💻 Which Framework Would Help Me Most as a Graduate Developer?
+## Which Framework Would Help Me Most as a Graduate Developer?
 
 As a graduate developer working on Tessa, I think the **ACS Code of Professional Ethics would help me most** because it directly relates to my responsibilities as an ICT professional. If I discovered that the chatbot was giving harmful advice, the ACS principles would help guide what I should personally do, including raising concerns, communicating limitations and attempting to minimise harm.
 
@@ -97,7 +97,7 @@ The **OECD framework would probably leave me the most stuck**. Its principles ar
 
 Australia's framework sits somewhere between the two. It provides more specific expectations around issues such as **contestability**, but it is still primarily useful for evaluating how the AI system and organisation should operate rather than defining my individual professional obligations.
 
-### 💭 Reflection
+### Reflection
 
 This comparison showed me that frameworks can agree on the same ethical concerns while still being useful in different ways. Australia's framework would make me ask whether users could challenge Tessa's outputs, the OECD framework would make me examine accountability across the system, and the ACS Code would make me consider my own responsibility as an ICT professional.
 
@@ -105,7 +105,7 @@ For someone working directly on an AI system, I think that difference is importa
 
 ---
 
-# 🧠 Week 2 Reflection
+# Week 2 Reflection
 
 This week showed me that ethical frameworks are not simply different versions of the same checklist. Although they share principles such as fairness, transparency, safety and accountability, they can make you look at the same incident from different perspectives.
 
@@ -115,7 +115,7 @@ From the perspective of someone entering the ICT industry, I found the ACS Code 
 
 ---
 
-# 📚 References
+# References
 
 Australian Computer Society. (2023). *ACS code of professional ethics*.  
 https://www.acs.org.au/content/dam/acs/ACSimages/ethicsdiscipline/CodeOfProfessionalEthics_Mar_2023.pdf
