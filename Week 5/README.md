@@ -1,6 +1,6 @@
-# 🏛️ Week 5 – AI Management Systems and ISO/IEC 42001
+# Week 5 – AI Management Systems and ISO/IEC 42001
 
-## 📘 Overview
+## Overview
 
 This week focused on **AI management systems (AIMS)** and how ISO/IEC 42001:2023 can be used to govern AI throughout an organisation.
 
@@ -10,7 +10,7 @@ This week moved beyond identifying the problem and looked at the governance syst
 
 ---
 
-# 📊 Task 1 – ISO/IEC 42001 Gap Analysis
+# Task 1 – ISO/IEC 42001 Gap Analysis
 
 I completed the **VerifyWise ISO 42001 Gap Analysis** for Saltbush Group across Clauses 4 to 10.
 
@@ -56,7 +56,7 @@ The Clause 8 score of 8% therefore makes sense when compared with the detailed a
 
 ---
 
-## 👔 Comparing My Assessment with the HR Manager
+## Comparing My Assessment with the HR Manager
 
 The HR manager's assessment gave Saltbush a readiness score of **43%** and described the organisation as **Partially ready**.
 
@@ -92,7 +92,7 @@ Saltbush therefore needs group-level monitoring rather than relying only on an o
 
 ---
 
-# 🗺️ Task 2 – Clause Mapping
+# Task 2 – Clause Mapping
 
 I also mapped the main ISO/IEC 42001 clauses to practical actions Saltbush could take for the hiring classifier.
 
@@ -112,7 +112,7 @@ At the moment, Saltbush is weak in both areas.
 
 ---
 
-# 📜 Task 3 – Reading an ISO/IEC 42001 Certificate
+# Task 3 – Reading an ISO/IEC 42001 Certificate
 
 For this activity, I examined **Anthropic's ISO/IEC 42001:2023 certificate**.
 
@@ -154,13 +154,13 @@ A certificate also cannot tell Saltbush whether the classifier is producing a fa
 
 ---
 
-# 🔍 Task 4 – Auditing a Statement of Applicability
+# Task 4 – Auditing a Statement of Applicability
 
 Six months later, Saltbush produced a Statement of Applicability for the classifier.
 
 I reviewed the entries against the supplied evidence and identified three that I do not think would survive a proper audit.
 
-## ❌ A.2 Policies Related to AI
+## A.2 Policies Related to AI
 
 Saltbush claimed this control was included and used its **ICT Acceptable Use Policy** as evidence.
 
@@ -183,7 +183,7 @@ Saltbush should create a current AI policy that covers issues such as:
 
 ---
 
-## ❌ A.3 Internal Organisation
+## A.3 Internal Organisation
 
 Saltbush used a Board minute approving the purchase of the classifier as evidence that responsibilities had been established.
 
@@ -202,7 +202,7 @@ Saltbush should have a current governance record, role description or similar do
 
 ---
 
-## ❌ A.5 Assessing Impacts of AI Systems
+## A.5 Assessing Impacts of AI Systems
 
 Saltbush excluded this control because a recruiter supposedly makes the final hiring decision.
 
@@ -218,7 +218,7 @@ Saltbush should conduct and document an AI impact assessment covering the classi
 
 ---
 
-## ✅ Entries That Were Better Supported
+## Entries That Were Better Supported
 
 Three entries were better supported by the evidence provided:
 
@@ -253,7 +253,7 @@ Leaving that evidence out of the Statement of Applicability would make the docum
 
 ---
 
-# 🚨 Task 5 – Designing and Stress-Testing a Monitoring Trigger
+# Task 5 – Designing and Stress-Testing a Monitoring Trigger
 
 The final activity required a monitoring rule that could identify a future fairness problem without overreacting to very small samples.
 
@@ -317,7 +317,7 @@ The organisation would still need to define and justify the actual fairness thre
 
 ---
 
-# 🧠 Week 5 Reflection
+# Week 5 Reflection
 
 This week showed me the difference between **having AI-related documents and actually having AI governance**.
 
@@ -335,7 +335,7 @@ This also connects directly with Week 4. The 60% versus 30% selection-rate gap w
 
 ---
 
-# 📚 References
+# References
 
 - International Organization for Standardization. (2023). *ISO/IEC 42001:2023 Information technology – Artificial intelligence – Management system*. ISO.
 - National Institute of Standards and Technology. (2023). *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*.
