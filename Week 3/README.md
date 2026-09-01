@@ -1,6 +1,6 @@
-# 🔐 Week 3 – Australian Law, Privacy and AI Systems
+# Week 3 – Australian Law, Privacy and AI Systems
 
-## 📘 Overview
+## Overview
 
 This week focused on the legal, social and cultural responsibilities that apply when AI systems are used in Australia. The activities examined the **Australian Privacy Principles (APPs)**, privacy controls in consumer AI products, and **Indigenous Data Sovereignty**.
 
@@ -10,9 +10,9 @@ The main question was whether this creates privacy implications for the universi
 
 ---
 
-# ⚙️ Task 2 – Privacy Control Audit
+# Task 2 – Privacy Control Audit
 
-## 🔎 Switch Hunting
+## Switch Hunting
 
 I tested ChatGPT while **signed out**, without creating or logging into an account. This followed the lab suggestion to use a private browser session and avoid unnecessary sign-ups.
 
@@ -36,21 +36,21 @@ One thing I noticed was that some OpenAI documentation still refers to a **"Chat
 
 ---
 
-# 🧾 Task 3 – Australian Privacy Principles Audit
+# Task 3 – Australian Privacy Principles Audit
 
 ## APP 1, 3, 6, 10 and 11
 
 | APP | Requirement | What the policy says | What I observed | Judgement |
 |---|---|---|---|---|
-| **APP 1** | Open and transparent management of personal information | OpenAI publishes a dated privacy policy explaining the information it collects, how it is used, disclosure, retention, controls and user rights. Information about complaints and overseas processing is more general. | This was mainly assessed through the privacy policy rather than the product itself. | ⚠️ **Unclear / Partial** |
-| **APP 3** | Collection of solicited personal information | The policy states that OpenAI may collect account information, prompts and other content, communications, device and location information, and information publicly available on the internet for model development. | ChatGPT allowed prompts to be submitted while signed out, with the Privacy Policy available through the interface. | ⚠️ **Unclear** |
-| **APP 6** | Use or disclosure of personal information | The policy explains that content may be used to improve or train models and provides an option to opt out. | **Improve the model for everyone** was enabled by default in the signed-out session and had to be manually disabled. | ⚠️ **Unclear / Potential concern** |
-| **APP 10** | Quality of personal information | The policy provides ways to request correction or removal of inaccurate personal information, including inaccurate information produced about a person. | This could not be meaningfully tested without an account. | ⚠️ **Unclear** |
-| **APP 11** | Security of personal information | OpenAI states that it uses commercially reasonable technical, administrative and organisational measures to protect personal information. The public privacy policy does not provide detailed information about individual security controls. | No detailed security controls were visible through the signed-out interface. | ⚠️ **Unclear** |
+| **APP 1** | Open and transparent management of personal information | OpenAI publishes a dated privacy policy explaining the information it collects, how it is used, disclosure, retention, controls and user rights. Information about complaints and overseas processing is more general. | This was mainly assessed through the privacy policy rather than the product itself. | **Unclear / Partial** |
+| **APP 3** | Collection of solicited personal information | The policy states that OpenAI may collect account information, prompts and other content, communications, device and location information, and information publicly available on the internet for model development. | ChatGPT allowed prompts to be submitted while signed out, with the Privacy Policy available through the interface. | **Unclear** |
+| **APP 6** | Use or disclosure of personal information | The policy explains that content may be used to improve or train models and provides an option to opt out. | **Improve the model for everyone** was enabled by default in the signed-out session and had to be manually disabled. | **Unclear / Potential concern** |
+| **APP 10** | Quality of personal information | The policy provides ways to request correction or removal of inaccurate personal information, including inaccurate information produced about a person. | This could not be meaningfully tested without an account. | **Unclear** |
+| **APP 11** | Security of personal information | OpenAI states that it uses commercially reasonable technical, administrative and organisational measures to protect personal information. The public privacy policy does not provide detailed information about individual security controls. | No detailed security controls were visible through the signed-out interface. | **Unclear** |
 
 ---
 
-## 💭 My Assessment
+## My Assessment
 
 The most difficult part of this task was avoiding the assumption that a privacy policy automatically proves compliance.
 
@@ -60,7 +60,7 @@ The training setting was particularly interesting because **Improve the model fo
 
 ---
 
-# 🔍 Task 4 – Second Opinion
+# Task 4 – Second Opinion
 
 ## Row 1 – APP 11 and Microsoft Copilot
 
@@ -72,7 +72,7 @@ An organisation-wide security certification can provide evidence that security p
 
 ### Revised Judgement
 
-⚠️ **Unclear**
+**Unclear**
 
 Microsoft's ISO 27001 certification is a positive indicator, but I would still need product-specific information about how Copilot protects conversation data before determining that it complies with APP 11.
 
@@ -88,11 +88,11 @@ A policy not mentioning something does not prove that the practice does not occu
 
 ### Revised Judgement
 
-⚠️ **Unclear**
+**Unclear**
 
 I would need further evidence, such as Microsoft's product documentation, enterprise terms or information about administrator controls, before determining whether conversation content is used for model training or another secondary purpose.
 
-### 💭 Reflection
+### Reflection
 
 This exercise reinforced that **a lack of evidence should normally result in an unclear judgement rather than automatically assuming compliance**.
 
@@ -100,7 +100,7 @@ I applied the same approach to my ChatGPT audit. For APP 11, I could find genera
 
 ---
 
-# 📌 Key Findings
+# Key Findings
 
 The audit identified three main privacy concerns.
 
@@ -110,7 +110,7 @@ The audit identified three main privacy concerns.
 
 ---
 
-# 🏫 Response to Rivergum University
+# Response to Rivergum University
 
 ## What is Rivergum's exposure if Priya keeps pasting student emails into ChatGPT?
 
@@ -128,7 +128,7 @@ This is not simply a productivity issue. It is an AI governance and privacy issu
 
 ---
 
-# 🌏 Indigenous Data Sovereignty
+# Indigenous Data Sovereignty
 
 ## How Could Indigenous Data Sovereignty Affect an AI System?
 
@@ -148,7 +148,7 @@ I think the same idea is important when developing AI systems. Meeting the minim
 
 ---
 
-# 💭 Discussion Reflection
+# Discussion Reflection
 
 The hardest principle for me to assess was **APP 11**, because security claims are difficult to verify from a privacy policy alone. Statements such as "commercially reasonable" security measures provide some information, but they do not explain enough about the actual technical controls to independently determine compliance.
 
@@ -158,7 +158,7 @@ One thing that surprised me was that ChatGPT still exposed the **Improve the mod
 
 ---
 
-# 🧠 Week 3 Reflection
+# Week 3 Reflection
 
 This week showed me that using AI responsibly involves more than checking whether the technology works correctly. Organisations also need to understand what information is being entered into an AI system, where that information goes, why it is being collected and who remains responsible for protecting it.
 
@@ -170,11 +170,10 @@ From a cybersecurity perspective, this week reinforced the connection between **
 
 ---
 
-# 📚 References
+# References
 
 - [OpenAI Privacy Policy](https://openai.com/policies/privacy-policy/)
 - [OpenAI Data Controls FAQ](https://help.openai.com/en/articles/7730893-data-controls-faq)
 - [OpenAI: How to Delete and Archive Chats](https://help.openai.com/en/articles/8809935-how-to-delete-and-archive-chats-in-chatgpt)
 - [Office of the Australian Information Commissioner – Australian Privacy Principles](https://www.oaic.gov.au/privacy/australian-privacy-principles)
 - [Maiam nayri Wingara – Indigenous Data Sovereignty](https://www.maiamnayriwingara.org/)
-
