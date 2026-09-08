@@ -1,387 +1,253 @@
-Week 6 – EU AI Act Risk Classification and Watermarking
+# Week 6 – EU AI Act Risk Classification and Watermarking
 
-Overview
+## Overview
 
-This week continued with the Saltbush Group hiring classifier from Weeks 4 and 5, but introduced the EU AI Act and looked at what happens when the system is used outside Australia.
+This lab extends the Saltbush recruitment case from [Week 4](../Week%204/README.md) and [Week 5](../Week%205/README.md). It examines how hiring in Dublin changes the legal scope, why removing protected attributes does not remove bias, and how provider and deployer responsibilities differ. The practical activity compares Content Credentials with Google's SynthID using the supplied Byzantine icon image.
 
-The scenario now involved Saltbush using the classifier to shortlist applicants for jobs in Dublin. This created an important change because the system’s outputs are now being used within the European Union, even though Saltbush is an Australian organisation and the system is hosted in Sydney.
+**Course:** ITECH2119 – AI Governance and Assurance  
+**Analysis date:** 8 September 2026  
+**Evidence:** Live compliance-checker runs, image transformations and recorded detector responses.  
+**Completion boundary:** Written analysis, four checker runs and the watermark experiment are recorded below. SynthID survived the three completed transformed-image checks according to Gemini; the fourth returned a reported quota error. Defeating both detectors was not demonstrated. Tutor observation and the lab's in-session marks are not claimed.
 
-The activities focused on classifying the hiring system under the EU AI Act, comparing the responsibilities of Saltbush and the vendor, examining possible proxy variables for protected characteristics, assessing claims made by the vendor, and seeing how changing the purpose of an AI system can change its legal classification.
+The legal analysis uses the AI Act together with its 2026 amendment. The checker is an aid to classification; its displayed wording and dates are not a current compliance certificate.
 
-The final activity moved away from recruitment and looked at AI-generated image provenance. I tested Content Credentials and Google’s SynthID using a supplied image of a supposed Byzantine icon and then modified the image in several ways to see how well the different detection methods survived.
+---
 
-⸻
+# Task 1 – Classify Saltbush's shortlisting system
 
-Task 1 – Classifying Saltbush’s Shortlisting System
+## Scope and role
 
-Scope and Roles
+Saltbush bought and uses an unmodified classifier, so it is the **deployer**. The vendor supplying the classifier is the **provider**. A recruiter being able to override its recommendations does not stop the classifier from influencing access to employment.
 
-Saltbush purchased the classifier from an external vendor and uses it without modifying it.
+The relevant connection is that the classifier's output is used for recruitment in Dublin. Australian ownership and Sydney hosting do not remove it from scope: **Article 2(1)(c)** covers providers and deployers outside the EU where their system's output is used in the Union. The system ranks and evaluates applicants, making **Article 6(2), Annex III point 4(a)** the relevant high-risk route. [EU AI Act, Articles 2 and 6 and Annex III](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)
 
-For this scenario:
+## Checker inputs and results
 
-* Saltbush is the deployer
-* The vendor is the provider
+The [Future of Life Institute checker](https://artificialintelligenceact.eu/assessment/eu-ai-act-compliance-checker/) was completed for both roles. The live version displayed the AI-system definition rather than a separate yes/no question. A classifier that infers rankings from applicant features fits that definition on the supplied facts.
 
-The fact that a recruiter can override the classifier does not remove the influence the system has over applicants. The classifier still ranks applicants and recommends who should be shortlisted for an interview.
+| Input | Answer and basis |
+|---|---|
+| Role | Deployer for Saltbush; provider for the vendor comparison |
+| Modification or rebranding | None for Saltbush; the scenario explicitly says it did not build or modify the system |
+| Annex I, sections A and B | None of the listed product categories |
+| Annex III use | Employment, worker management and access to self-employment |
+| Significant influence/risk | Yes: ranking affects interview opportunities and evaluates individuals |
+| Territorial connection | Output used in the EU |
+| Exclusions | None established by the scenario |
+| Prohibited practices | None for the original shortlisting classifier; the proposed video add-on is assessed separately |
+| Article 50 features | None specified for the original non-conversational classifier |
+| Public authority/public-service deployer | No, assuming Saltbush is the private distribution business described |
 
-The system is also within the scope of the EU AI Act because its outputs are being used for recruitment in Dublin.
+| Run | Actual result | Provision named in result | Displayed obligation count | Evidence |
+|---|---|---|---|---|
+| Saltbush as deployer | High-risk AI system | Article 6; deployer duties under Article 26 | 10 main deployer bullets, plus 1 AI-literacy topic; 3 additional conditional bullets | [Screenshot](evidence/checker-deployer.jpg), [result text](evidence/checker-deployer.txt) |
+| Vendor as provider | High-risk AI system | Article 6; provider duties under Article 16 | 12 main provider bullets, plus 1 AI-literacy topic | [Screenshot](evidence/checker-provider.jpg), [result text](evidence/checker-provider.txt) |
 
-Article 2(1)(c) covers situations where a provider or deployer is located outside the EU but the output produced by the AI system is used within the EU.
+These are counts of the **tool's displayed bullets**, not a count of every statutory obligation. The deployer result also lists conditions for public authorities, law enforcement and data-protection impact assessments. The first two do not match this scenario. The DPIA point needs a separate assessment and should not be silently counted as an unconditional additional duty.
 
-Because the classifier is being used to evaluate applicants for employment, the relevant high-risk classification comes from Article 6 and Annex III.
+The risk tier stayed the same. The provider result added responsibilities for designing and demonstrating compliance, including quality management, technical documentation, conformity assessment, registration and corrective action. The deployer result focused on using the system properly, human oversight, monitoring, input quality, logs and affected people.
 
-Compliance Checker Results
+**Information still needed:** the complete technical and bias-testing records; who controls the logs; actual oversight arrangements; data-protection roles and lawful bases; when the system was first put into service for the relevant deployment; and whether future changes would significantly alter its design. Selecting answers in a checker does not establish these facts.
 
-I completed the Future of Life Institute EU AI Act Compliance Checker twice so I could compare Saltbush’s responsibilities with those of the vendor.
+## Features that can act as proxies
 
-Run	Result	Main provision	Obligations shown
-Saltbush as deployer	High-risk AI system	Article 6 and Article 26	10 main deployer obligations, plus AI literacy and conditional requirements
-Vendor as provider	High-risk AI system	Article 6 and Article 16	12 main provider obligations, plus AI literacy
+| Feature | Possible protected attribute | Who could be disadvantaged and why | Evidence needed |
+|---|---|---|---|
+| Continuous employment, penalising breaks over six months | Gender; potentially disability | People taking parental/carer leave or extended illness-related leave can receive a penalty unrelated to their present ability to do the job. Women may be disproportionately affected by parental-care patterns. | Compare gap patterns and selection outcomes using appropriate group labels; test whether the penalty is job-relevant |
+| Year of earliest qualification | Age | Earlier qualification years can reveal approximate age. If the model favours recent qualifications, older applicants may lose out; the actual direction cannot be established without its learned behaviour. | Inspect feature effects and compare otherwise similar applicants with different qualification dates |
+| Postcode-derived near/far distance band | Race/ethnicity through residential patterns; also socioeconomic position | Applicants in particular neighbourhoods may receive systematically different scores. A far-distance penalty can disadvantage groups concentrated outside the preferred area. | Local demographic evidence, the model's actual distance effect, and a justified connection to job requirements |
 
-Evidence
+Experience, qualifications and keyword matching also deserve testing, but correlation alone does not establish unlawful discrimination. A proxy is a feature that carries information correlated with another characteristic; the model need not explicitly reconstruct a person's gender or age for unequal effects to occur.
 
-* Saltbush deployer checker screenshot
-* Saltbush deployer result text
-* Vendor provider checker screenshot
-* Vendor provider result text
+The `likely_gender` field is stated to be used for correspondence, **not as a model input**. It must not be presented as proof that the classifier directly uses gender. Inferring gender from first names is also an unreliable basis for either respectful correspondence or a fairness audit.
 
-The risk classification did not change between the two runs because the purpose of the system remained the same.
+Week 4 recorded selection rates of **60% for Group A and 30% for Group B**: a **30 percentage-point gap** and a **0.50 selection-rate ratio**. Those small samples flag a problem to investigate; they do not identify the cause or establish that Group B represents women. [Week 4 portfolio](../Week%204/README.md)
 
-What changed was the type of responsibility.
+### Do the features change the tier?
 
-The vendor has responsibilities associated with developing and demonstrating compliance of the system, including areas such as technical documentation, conformity assessment, quality management and corrective action.
+No. Recruitment and applicant evaluation determine the Annex III classification. The features change the bias risks and the evidence needed to manage them, not the employment purpose. The profiling safeguard in Article 6(3) also prevents a provider from treating an Annex III profiling system as exempt merely because a human makes the final decision. [AI Act, Article 6](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)
 
-Saltbush’s responsibilities are more focused on how the system is actually used, including human oversight, monitoring, input data, logging and responding to problems.
+### Which provider obligation is the problem?
 
-The checker was useful for identifying these differences, but completing the checker does not prove that Saltbush or the vendor is compliant.
+The strongest concern is **data governance and bias examination/mitigation under Article 10(2)(f)–(g)**, reached through the provider's Article 16(a) responsibility to meet Section 2 requirements. Representativeness and suitability under Article 10(3)–(4), technical documentation under Article 11 and information for deployers under Article 13 are also relevant.
 
-There is still information I would want before making that judgement, including:
+A two-page feature sheet and a claim that protected inputs are excluded do not demonstrate that training/testing data were examined for bias or that unequal effects were addressed. The evidence establishes a **governance and assurance gap**, not proof of an already-enforceable Article 10 breach: applicability dates and the legacy-system rule must also be considered. [AI Act, Articles 10–16](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)
 
-* technical and bias-testing documentation,
-* information about who controls the system logs,
-* evidence of actual human oversight,
-* information about data-protection responsibilities,
-* when the system was first placed into service, and
-* whether significant changes have been made to the system.
+### Is using protected attributes for a bias audit better or worse?
 
-⸻
+It can put Saltbush in a better assurance position because meaningful subgroup testing needs dependable group information. The audit should use justified, accurate labels, keep them separate from operational scoring, minimise access and retention, and test intersectional effects where sample sizes permit. Guessing gender from names can hide or introduce measurement error.
 
-Features That Could Act as Proxies
+The amended **Article 4a** provides a tightly conditioned route for providers and deployers to process special-category data for bias detection/correction; it is not unrestricted permission. Necessity and safeguards still matter, including whether less intrusive data would suffice. Gender and age are not automatically GDPR special-category data, although they remain personal data. The former Article 10(5) has been replaced by this broader framework. [2026 amendment, Article 1(6) and amendments to Article 10](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744)
 
-Removing protected characteristics from a dataset does not automatically remove the possibility of discrimination.
+---
 
-Several features used by the Saltbush classifier could potentially act as proxies for other characteristics.
+# Task 2 – Respond to the vendor's email
 
-Feature	Possible proxy	Potential problem	Evidence I would need
-Continuous employment, with penalties for breaks longer than six months	Gender or disability	Parental leave, caring responsibilities or extended illness could create employment gaps unrelated to someone’s current ability to perform the job	Compare employment-gap patterns and selection outcomes between appropriate groups
-Year of earliest qualification	Age	Qualification dates can provide an approximate indication of someone’s age	Examine how the model uses qualification dates and compare similar applicants
-Postcode-derived distance band	Race, ethnicity or socioeconomic position	Residential patterns could cause particular communities to receive systematically different scores	Compare local demographic information with model outcomes and determine whether distance is genuinely required for the job
+| Vendor claim | Assessment | Reason and relevant provision |
+|---|---|---|
+| 1. Australia and Sydney hosting mean the EU Act does not apply. | **Disagree.** | The output is used to recruit in Dublin. Article 2(1)(c) establishes the relevant EU connection. |
+| 2. Shortlisting is a narrow procedural task exempt under Article 6(3). | **Disagree on these facts.** | Ranking applicants materially influences selection. It is not just administrative formatting. Annex III point 4(a) applies, and Annex III systems that profile natural persons remain high risk. A provider invoking the exception must document its assessment under Article 6(4) and meet the associated Article 49(2) registration requirement. An unsupported assertion is insufficient. |
+| 3. No protected inputs means no fairness problem. | **Disagree.** | Proxies and unequal outputs still matter. Article 10(2)(f)–(g) concerns examining and addressing bias, rather than merely omitting particular columns. The Week 4 disparity requires investigation. |
+| 4. High-risk obligations wait until 2027, so nothing needs doing now. | **Partly correct about deferred high-risk duties; disagree with “no action”.** | The current Annex III date is 2 December 2027. AI literacy already applies, existing Article 5 prohibitions already apply, and the legacy-system rule needs checking. Existing data-protection and equality responsibilities are not switched off by the AI Act timetable. |
+| 5. The enthusiasm add-on is high risk and acceptable with documentation. | **Disagree, assuming it infers emotions from biometric face/voice information.** | Workplace emotion inference is prohibited by Article 5(1)(f), subject to the medical/safety exception. Recruitment enthusiasm/confidence scoring does not fit that exception. Documentation cannot make a prohibited use lawful. If the system only assesses answer content against a skills rubric, rather than inferring emotion from biometrics, its actual function needs reassessment. |
 
-Other features such as experience, qualifications and keyword matching could also require investigation.
+Sources: [AI Act, Articles 2, 5, 6, 10 and 49](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng); [2026 amendment](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744).
 
-However, a feature being correlated with a protected characteristic does not automatically prove discrimination. Evidence would still be required to determine how the classifier actually uses that information.
+## Who checks the checker?
 
-The scenario also contains a likely_gender field, but it is stated to be used for correspondence rather than as an input to the classifier.
+| Date shown by the checker | Recorded value |
+|---|---|
+| Latest changelog entry | **3 July 2025** |
+| Date of official text the tool says it reflects | **13 June 2024** |
 
-For that reason, I would not use the existence of this field as evidence that the classifier directly considers gender.
+The tool is supplied by the Future of Life Institute, an independent organisation, rather than an EU institution. Calling it “official compliance tooling” overstates its authority. Its dates also precede the 2026 amendment. [Checker and its explanatory material](https://artificialintelligenceact.eu/assessment/eu-ai-act-compliance-checker/)
 
-It would also be unreliable to use gender inferred from someone’s first name as the main basis for a fairness audit.
+### 1. How many listed obligations apply today?
 
-Connection to Week 4
+On **8 September 2026**, **0 of the 10 main high-risk deployer bullets** have begun applying through the Annex III timetable. **1 separately listed topic—AI literacy under Article 4—already applies.** The checker uses the older literacy wording; the amendment requires measures supporting the development of literacy.
 
-In Week 4, I found the following selection rates:
+The current timetable is:
 
-* Group A: 60%
-* Group B: 30%
+| Date | Relevant stage |
+|---|---|
+| 2 February 2025 | Chapters I and II, including literacy and the original prohibitions |
+| 2 August 2025 | General-purpose AI model obligations begin, subject to transition provisions |
+| 2 August 2026 | Article 50 transparency duties generally begin |
+| 2 December 2026 | Article 50(2) transition ends for qualifying existing systems; new prohibited practices begin |
+| 2 December 2027 | Annex III high-risk requirements and obligations |
+| 2 August 2028 | High-risk AI in the relevant regulated-product route |
 
-This created a 30 percentage-point difference and a selection-rate ratio of 0.50.
+The classifier has run for eighteen months. **Article 111(2)** is therefore material: the high-risk duties for qualifying pre-existing systems hinge on significant design changes after the relevant application date. It would be wrong to say every unchanged legacy classifier automatically becomes subject to every high-risk duty on 2 December 2027. Its deployment history needs checking. [Commission timetable](https://ai-act-service-desk.ec.europa.eu/en/ai-act/faq/when-does-enforcement-start); [amended Articles 111 and 113](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744)
 
-Those results provide a reason to investigate the classifier, but they do not tell us what caused the difference or prove that one particular feature was responsible.
+### 2. Which system is the more urgent legal problem?
 
-Do the Proxy Features Change the Risk Classification?
+The enthusiasm add-on requires the immediate **do-not-deploy decision**, because its prohibited use would be unlawful now. It is only proposed, so there is no evidence that Saltbush is already committing that use violation. The running classifier creates the current operational fairness issue and should be investigated now, while the specific Annex III duties are deferred. These are different kinds of urgency.
 
-No.
+### 3. What prohibition arrives in December 2026?
 
-The classifier is high risk because it is being used to evaluate people for employment.
+The amendment adds prohibitions concerning **AI-generated/manipulated non-consensual intimate material and child sexual abuse material**, including relevant provider and deployer practices. The intimate-material provisions concern specified realistic depictions of identifiable people without the required consent; this is not a blanket ban on generated images. See amended Article 5(1)(ba)–(bb), with its accompanying conditions and exceptions. [2026 amendment](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744)
 
-Changing or removing individual features does not change that purpose.
+### 4. What is the checker good for?
 
-The proxy features instead affect the fairness risks that Saltbush and the vendor need to investigate.
+It is useful for initial classification and an obligation inventory, but I would never use its output alone to certify current legal compliance or decide that no action is required.
 
-⸻
+---
 
-Provider Obligations and Bias
+# Task 3 – Change the use, reassess the tier
 
-One of the biggest concerns for the vendor is data governance and the requirement to examine and address possible bias.
+| Scenario | Actual checker result / analysis | Why it changes, or does not change | Evidence |
+|---|---|---|---|
+| Sort ordinary supplier invoices by urgency | **Minimal risk** in this scenario; the result retained **AI Literacy obligations** | The employment use in Annex III point 4(a) is removed. No other high-risk, prohibited or Article 50 use was established. Minimal risk does not mean absolutely no AI Act duties. | [Invoice run](evidence/checker-invoices.jpg) |
+| Score interview enthusiasm/confidence from biometric video cues | **Prohibited** | Article 5(1)(f) takes priority over an otherwise high-risk hiring classification. The checker gave its Article 5 prohibited-system warning. | [Enthusiasm run](evidence/checker-enthusiasm.jpg) |
+| Add a conversational explanation front-end for rejected candidates | **Hiring remains high risk, with additional transparency duties** | Article 50(1) concerns systems intended to interact directly with people; Article 50(5) concerns clear, accessible disclosure by the first interaction. | Reasoned application of Article 50; no third checker run is claimed |
 
-Article 10 includes requirements relating to the quality and governance of data used by high-risk AI systems.
+For the conversational front-end, candidates should be told that they are interacting with AI unless this is already obvious in the statutory sense. Disclosure should appear at the start, alongside a practical route to human review. Answers should reflect actual selection reasons rather than plausible reasons invented by a language model.
 
-Simply saying that protected characteristics are not included as inputs does not demonstrate that the system is fair.
+**Role matters:** Article 50(1) directly addresses the provider. If Saltbush builds and releases the front-end under its own name, provider duties may attach to it. If the vendor supplies it, Saltbush should ensure the supplied disclosure is correctly implemented and maintained in use. Any generated-text marking duty under Article 50(2) is a separate provider consideration. A private candidate explanation is not automatically public-interest publication under Article 50(4). [AI Act, Articles 3 and 50](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)
 
-For example, postcode, employment history or qualification dates may still produce unequal outcomes even if gender or age are not directly supplied to the classifier.
+---
 
-The vendor would therefore need evidence showing that the relevant datasets and model behaviour have been examined for bias.
+# Task 4 – Test the Byzantine icon's provenance
 
-A two-page feature description and a statement that protected attributes have been removed would not be enough evidence for me to accept that the issue had been properly addressed.
+## Initial inspection and baseline
 
-⸻
+The image shows a haloed figure in traditional icon styling holding an **electric guitar**. That visible anachronism undermines the listing's eleventh-century claim. The unrecorded provenance, single photograph and recently created seller account are reasons to request evidence; they do not independently prove how the image was produced.
 
-Using Protected Attributes for Fairness Testing
+The lab supplied [`byzantine_icon.jpg`](https://moodle.federation.edu.au/pluginfile.php/10610290/mod_lesson/page_contents/553491/byzantine_icon.jpg), a **992 × 1075** JPEG. Its SHA-256 is:
 
-Using protected or demographic information during a controlled fairness audit can sometimes improve the organisation’s ability to identify unequal outcomes.
-
-The important distinction is that this information should be used for auditing rather than becoming another input used by the classifier to rank applicants.
-
-Any fairness audit should also use accurate information rather than guessing characteristics from names.
-
-Access should be restricted, the information should only be kept for as long as necessary, and Saltbush would still need to meet its privacy and data-protection obligations.
-
-The EU AI Act provides a controlled pathway for processing certain sensitive information for bias detection and correction, but this does not create unlimited permission to collect demographic information.
-
-The organisation would still need to justify why the information is necessary and how it will be protected.
-
-⸻
-
-Task 2 – Responding to the Vendor’s Claims
-
-The vendor made several claims about why Saltbush should not be concerned about the EU AI Act.
-
-I assessed each claim separately.
-
-Vendor claim	My assessment	Reason
-Australia and Sydney hosting mean the EU AI Act does not apply	Disagree	The classifier’s outputs are being used for recruitment in Dublin, creating the required connection with the EU
-Shortlisting is only a narrow procedural task	Disagree	Ranking applicants directly influences who receives an interview
-Removing protected inputs removes the fairness problem	Disagree	Proxy variables and unequal outcomes can still exist
-High-risk requirements are delayed, so nothing needs to be done now	Partly agree with the timing, but disagree with the conclusion	Some high-risk obligations are deferred, but other requirements and existing privacy and discrimination responsibilities still matter
-The proposed enthusiasm-scoring feature is high risk and can be used if documented properly	Disagree	Workplace emotion inference using biometric information can fall within prohibited AI practices
-
-The final claim was particularly important.
-
-If the proposed feature analyses someone’s face or voice to determine whether they appear enthusiastic or confident during an interview, documentation would not automatically make that use acceptable.
-
-A prohibited AI practice cannot simply be converted into a compliant one by creating more paperwork.
-
-⸻
-
-Who Checks the Checker?
-
-I also looked at the information provided by the compliance checker itself.
-
-Item	Recorded information
-Latest changelog entry	3 July 2025
-Official text the checker says it reflects	13 June 2024
-
-The checker is provided by the Future of Life Institute rather than an EU institution.
-
-This means I would treat it as a useful classification tool rather than official proof of legal compliance.
-
-This became especially important because the legislation has continued to change since the dates shown by the checker.
-
-What Obligations Apply Now?
-
-As of 8 September 2026, the main Annex III high-risk deployer obligations shown by the checker have not all begun applying through the current timetable.
-
-AI literacy requirements already apply.
-
-The current timetable recorded during the activity was:
-
-Date	Stage
-2 February 2025	Chapters I and II, including AI literacy and original prohibited practices
-2 August 2025	General-purpose AI model obligations begin, subject to transition arrangements
-2 August 2026	Article 50 transparency requirements generally begin
-2 December 2026	Additional transparency transition requirements and new prohibited practices
-2 December 2027	Annex III high-risk requirements and obligations
-2 August 2028	Relevant high-risk regulated-product requirements
-
-The classifier has already been operating for approximately eighteen months.
-
-This means its deployment history and any significant changes made to the system would also need to be considered rather than assuming that every future requirement automatically applies to an unchanged existing system.
-
-⸻
-
-Which System Is the More Urgent Problem?
-
-The proposed enthusiasm-scoring system creates the most immediate legal concern because Saltbush should not deploy a system that performs prohibited workplace emotion inference.
-
-However, the existing hiring classifier creates a different problem.
-
-It is already operating and Week 4 identified a substantial difference between Group A and Group B selection rates.
-
-I would therefore treat them as two different types of urgency:
-
-* Do not deploy the proposed emotion-scoring feature
-* Investigate the fairness of the existing classifier
-
-⸻
-
-What Is the Compliance Checker Good For?
-
-I think the checker is useful for:
-
-* identifying an initial AI Act risk classification,
-* identifying possible obligations,
-* comparing provider and deployer responsibilities, and
-* identifying legislation that needs further investigation.
-
-I would not use the checker by itself to declare that an organisation is legally compliant.
-
-The output still needs to be checked against the legislation and the actual facts surrounding the AI system.
-
-⸻
-
-Task 3 – Changing the Use and Reassessing the Risk
-
-This activity demonstrated how much the purpose of an AI system matters when determining its risk classification.
-
-I tested or assessed several different uses.
-
-Scenario	Result	Reason	Evidence
-Sort ordinary supplier invoices by urgency	Minimal risk	The system is no longer being used for employment decisions or another identified high-risk purpose	Invoice checker run
-Score interview enthusiasm or confidence from biometric video cues	Prohibited	Workplace emotion inference can fall under Article 5 prohibited practices	Enthusiasm checker run
-Add a conversational explanation system for rejected applicants	Hiring remains high risk with additional transparency considerations	The underlying employment system remains high risk and the conversational system introduces direct AI interaction with applicants	Analysis based on Article 50
-
-The first scenario was particularly useful because the underlying technology could potentially remain similar while its legal classification changes because its purpose has changed.
-
-Sorting ordinary invoices does not affect someone’s access to employment, so the high-risk employment classification no longer applies.
-
-The enthusiasm-scoring scenario moved in the opposite direction.
-
-Instead of simply becoming another high-risk recruitment tool, emotion inference in the workplace can fall into the prohibited category.
-
-⸻
-
-Conversational Explanations for Rejected Applicants
-
-Adding an AI chatbot that explains rejection decisions would not remove the original high-risk classification.
-
-The hiring system would still be influencing employment decisions.
-
-The conversational system would introduce additional transparency considerations because applicants would be interacting directly with AI.
-
-Applicants should be clearly told that they are interacting with an AI system unless this is already obvious.
-
-I would also provide a clear way for applicants to request human review.
-
-Another important control would be ensuring that the chatbot only explains genuine reasons associated with the recruitment decision.
-
-A language model generating a convincing but incorrect explanation would create another governance problem rather than solving the first one.
-
-⸻
-
-Task 4 – Testing the Byzantine Icon
-
-The final activity involved a supplied image of a supposed Byzantine icon.
-
-The image shows a haloed figure in traditional religious iconography holding an electric guitar.
-
-That immediately creates a fairly obvious problem with the claim that the object is an authentic eleventh-century Byzantine icon.
-
-The scenario also included other warning signs such as limited provenance, a single photograph and a recently created seller account.
-
-These details would make me want additional evidence before accepting the seller’s claims.
-
-⸻
-
-Original Image
-
-The supplied image was:
-
-* 992 × 1075 pixels
-* JPEG format
-
-Its SHA-256 hash was:
-
+```text
 d28322208d7dde75728b9ef868a389c2bf2534dbf9cc9c7efe0c8e50db3a5ad5
+```
 
-I first tested the original image using the Content Credentials verifier.
+The [Content Credentials verifier](https://verify.contentauthenticity.org/) identified AI generation and displayed **Google LLC**, with **Google Media Processing Services** as the issuer. It showed creation/editing provenance and an issuance time of **24 August 2026, 10:57 PM GMT+10**. [Original verifier screenshot](evidence/credentials-original.jpg)
 
-The verifier identified AI-generation provenance associated with Google LLC, with Google Media Processing Services shown as the issuer.
+Gemini's original response reported a valid watermark and Google creation record, but its explanation mixed SynthID with Content Credentials. Follow-up prompts explicitly requested a detector result separate from metadata and visual judgement. Results below are **Gemini-reported**: the experiment did not have independent access to its detector logs or confidence scores. The [baseline response](evidence/gemini-original.txt) and [complete lab-only transcript](evidence/gemini-lab-transcript.txt) preserve the evidence.
 
-The credentials showed an issuance time of 24 August 2026 at 10:57 PM GMT+10.
+Content Credentials carry signed provenance assertions associated with a file. SynthID encodes a signal in the media itself. Their evidential value differs: a provenance record can identify an asserted creation history, while a provider-specific watermark can support a narrower origin claim. Neither authenticates the physical object in a seller's possession. [Google's verification guidance](https://support.google.com/gemini/answer/16722517?hl=en); [Google DeepMind SynthID](https://deepmind.google/models/synthid/)
 
-Evidence
+## Predictions and controlled transformations
 
-* Original Content Credentials result
-* Gemini baseline response
-* Complete Gemini lab transcript
+Predictions were written before creating the test copies. Each transformation starts from the original rather than accumulating earlier edits. The screenshot trial captured the image displayed at 260 pixels wide on Moodle; the image-only area was cropped and saved as JPEG. The other trials used deterministic macOS image conversion, without generating a replacement image. [Prediction log](evidence/watermark-predictions.md)
 
-Gemini also reported that the original contained a valid watermark.
+| Attempt | Prediction recorded before testing | Content Credentials observation | SynthID observation | Could the image still serve as an auction photograph? |
+|---|---|---|---|---|
+| Original, 992 × 1075 | Baseline should retain provenance and watermark | Verifier displayed Google-issued AI-generation credentials | Gemini reported a valid watermark, but mixed metadata and watermark reasoning | Visually detailed; the guitar still contradicts the claimed age |
+| [Screenshot, crop and JPEG re-save, 260 × 282](evidence/icon-screenshot-260.jpg) | Credentials should not transfer; pixel watermark might survive resizing | Verifier reset without an explicit result; original embedded provenance segments absent in local header inspection; Gemini reported no valid C2PA manifest | **Positive**, according to Gemini's stated automated verification result | Recognisable as a small thumbnail; insufficient detail for evaluating an expensive antique |
+| [JPEG re-save at quality 20, 992 × 1075](evidence/icon-jpeg-q20.jpg) | Export may discard credentials; watermark may survive compression | Same verifier reset; local provenance segments absent; Gemini reported no valid C2PA manifest | **Positive**, according to Gemini's stated automated verification result | Retains detail and composition sufficiently for a listing image, although text and borders show compression; authenticity remains unproven |
+| [Resize to 124 × 134, then enlarge to 992 × 1075, JPEG quality 80](evidence/icon-down-up.jpg) | Severe resampling may prevent detection, with visible blur | Upload succeeded after a file-picker retry; verifier reset; local provenance segments absent; Gemini reported no valid C2PA manifest | **Positive**, according to Gemini; the prediction that severe resampling might stop detection was not supported | Recognisable composition, but obvious pixelation and lost fine detail make it unsuitable for a credible inspection photograph |
+| [Rotate original 7 degrees and export at JPEG quality 35](evidence/icon-rotate-7.jpg) | Geometric misalignment might disrupt detection while preserving most detail; export may discard credentials | Verifier reset; local provenance segments absent; Gemini reported no valid C2PA manifest | **Unavailable:** Gemini reported **Quota Exceeded** and explicitly said no watermark assessment was performed | Most detail remains; tilted framing and black corner padding reduce presentation quality |
 
-However, its initial explanation mixed information from Content Credentials with its SynthID result.
+The prediction log also contains proposed screenshot sizes that were not run. They are **plans, not additional experimental results**. File-picker retries are technical failures, not negative detections. The original plus four transformed-image prompts were submitted; the last reported a quota limit, which ended further SynthID testing.
 
-For the later tests, I specifically asked Gemini to separate the watermark result from metadata and visual analysis.
+**Credential evidence limitation:** the verifier's return to its start screen was not an explicit negative result. Local JPEG-header inspection found **3 APP11 segments in the original and 0 in each derivative**, supporting loss of its embedded provenance. This header check does not validate signatures, search for remote credentials, or detect SynthID. Gemini separately reported absent C2PA manifests. The [file manifest](evidence/file-manifest.json) identifies the exact images and records the header findings. The verifier states are saved for the [screenshot](evidence/credentials-screenshot-260.jpg), [JPEG](evidence/credentials-jpeg-q20.jpg), [resize](evidence/credentials-down-up.jpg) and [rotation](evidence/credentials-rotate-7.jpg) attempts.
 
-⸻
+### Reproducing the deterministic edits
 
-Content Credentials and SynthID
+Download the supplied original into the current directory. These macOS `sips` commands reproduce the export, resize and rotation methods; software versions can affect exact encoded bytes, so the supplied file hashes identify the actual tested copies.
 
-The two systems work differently.
-
-Content Credentials provide provenance information associated with the file.
-
-SynthID places a signal within the media itself.
-
-This means modifying or exporting a file may remove its original provenance information while a watermark embedded into the visual content may still survive.
-
-I wanted to test how this difference behaved in practice.
-
-⸻
-
-Predictions and Transformations
-
-Before testing the modified images, I recorded what I expected to happen.
-
-Each transformation was created from the original image rather than applying modifications on top of previous modifications.
-
-Attempt	My prediction	Content Credentials result	SynthID result	Image usefulness
-Original	Provenance and watermark should both remain	Google-issued AI-generation credentials detected	Gemini reported watermark present	Detailed enough for a listing, although the electric guitar remains an obvious problem
-Screenshot, crop and JPEG save at 260 × 282	Credentials would probably disappear but the watermark might survive	Original embedded provenance was no longer present in local header inspection	Positive according to Gemini	Recognisable but too small for detailed inspection
-JPEG quality 20 at 992 × 1075	Export may remove credentials but SynthID may survive compression	Embedded provenance was no longer present	Positive according to Gemini	Still usable as a listing image despite visible compression
-Resize to 124 × 134 and enlarge back to 992 × 1075	Severe resizing might interfere with watermark detection	Embedded provenance was no longer present	Positive according to Gemini	Clearly degraded and unsuitable for properly inspecting an expensive antique
-Rotate seven degrees and export at JPEG quality 35	Geometric changes might interfere with detection	Embedded provenance was no longer present	Unavailable because Gemini reported a quota error	Still recognisable but the rotation and black corners reduce presentation quality
-
-Evidence
-
-* Prediction log
-* Screenshot transformation
-* JPEG quality 20 transformation
-* Downscale and upscale transformation
-* Rotated transformation
-* File manifest
-
-I also kept screenshots of the Content Credentials verifier during the transformed-image tests:
-
-* Screenshot test
-* JPEG compression test
-* Resize test
-* Rotation test
-
-One limitation is that the Content Credentials verifier returned to its starting screen rather than displaying an explicit negative result for the transformed images.
-
-Local inspection provided additional evidence.
-
-The original JPEG contained three APP11 segments, while the transformed versions contained zero.
-
-This supports the conclusion that the embedded provenance information was removed from the transformed files, but it does not test SynthID or prove that no other provenance information could exist elsewhere.
-
-⸻
-
-Reproducing the Image Transformations
-
-The following macOS commands reproduce the JPEG compression, resizing and rotation tests:
-
+```sh
 sips -s format jpeg -s formatOptions 20 byzantine_icon.jpg --out icon-jpeg-q20.jpg
 sips --resampleHeightWidth 134 124 byzantine_icon.jpg --out icon-small.jpg
 sips --resampleHeightWidth 1075 992 -s format jpeg -s formatOptions 80 icon-small.jpg --out icon-down-up.jpg
 sips --rotate 7 -s format jpeg -s formatOptions 35 byzantine_icon.jpg --out icon-rotate-7.jpg
+```
 
-The screenshot test was created by displaying the image at 260 pixels wide, taking a screenshot and cropping the image area before saving it as JPEG.
+For the screenshot trial, display the original at 260 pixels wide, take a browser screenshot and crop to its 260 × 282 image area. This trial combines display resampling, screenshot capture and JPEG re-saving; it does not isolate those effects individually.
 
-Because that test combines resizing, screenshot capture, cropping and JPEG conversion, it does not show which individual operation caused the change.
+## Findings and reflection
 
-⸻
+### 1. Which detector was easier to defeat?
 
-Which Detector Was Easier to Defeat?
+**The original embedded credentials were easier to remove.** Even the screenshot/export lost their JPEG provenance segments, while Gemini reported SynthID present in all three completed transformed-image checks. The comparison is limited by the verifier's inconclusive UI behaviour and the lack of independently accessible SynthID detector logs; it is not a general benchmark of either technology.
 
-The embedded Content Credentials were
+### 2. How much degradation stopped the watermark, and is it valuable?
+
+A stopping threshold was **not reached**. Gemini still reported a watermark after reduction to 124 × 134 and enlargement to 992 × 1075—approximately **1.56% of the original pixel count** at the intermediate stage. This visibly damaged the image without achieving a reported negative. The rotation trial cannot establish anything about survival because its detector check was unavailable.
+
+The low-quality JPEG remains visually usable as a listing photograph, but the heavily enlarged version is inadequate for examining a claimed AU$4,200 antique. Both retained a reported watermark result. Thus the experiment did **not** achieve the lab's challenge of removing both signals while maintaining a convincing photograph.
+
+A positive provenance/watermark result remains valuable evidence against this particular listing. A negative result would not establish that the photograph is authentic: an image may come from another generator, lose its metadata, or be altered beyond a detector's reliable range. An auction buyer still needs provenance records, additional photographs and an appropriate examination of the physical object.
+
+### 3. What can be done with an image from an unknown generator?
+
+Start with embedded Content Credentials and identify any named issuer. Use an originating provider's supported detector where available, compare earlier versions through source/reverse-image research, and request the original file and creation history. Generic AI-image classifiers can supply uncertain clues, but there is no single universal watermark detector that proves every unmarked image is genuine. Google's own verification guidance explains the limits of its supported checks. [Gemini verification guidance](https://support.google.com/gemini/answer/16722517?hl=en)
+
+### 4. Does Article 50 apply when the seller removes the mark?
+
+Article 50(2) places the machine-readable marking responsibility on the **provider of the generating system**. Destroying a mark later does not automatically make the seller that provider or establish a breach of that exact paragraph.
+
+A commercial seller who uses an AI system to generate or manipulate a deceptive image may be a **deployer**, making the Article 50(4) deepfake disclosure rule relevant where its definition and scope are met. Whether this synthetic depiction of an object meets every element needs analysis; merely exporting a JPEG with a conventional editor does not itself make someone an AI deployer. The Cyprus seller has a clear EU connection, and the commercial sale is not simply personal non-professional use.
+
+My assessment is that the actor, the AI use and the applicable duty must be identified separately. The provider's marking duty and a seller's disclosure duty address different conduct. The deceptive listing can also raise consumer-law issues, which this experiment does not determine. [AI Act, Articles 2, 3(60) and 50](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)
+
+## Optional smaller challenge – Transparency Code of Practice
+
+Google, identified in the original file's provenance, announced signing the **Code of Practice on transparency of AI-generated content on 24 July 2026**. The Commission's subsequent list includes Google among Section 1 signatories. This is the transparency code associated with Article 50, distinct from the earlier general-purpose AI code. Signing supports a commitment to marking; it does not demonstrate that every watermark is indestructible or independently certify this individual file. [Google announcement](https://blog.google/company-news/outreach-and-initiatives/public-policy/eu-ai-act-transparency-code-of-practice/); [Commission signatory announcement](https://digital-strategy.ec.europa.eu/en/news/strong-backing-code-practice-transparency-ai-generated-content)
+
+The optional Colab text-watermarking challenge was not performed.
+
+---
+
+# Connecting the lab to the governance portfolio
+
+| Week 5 governance area | Practical application from Week 6 |
+|---|---|
+| Clause 4 – Context | Update the system scope for Dublin recruitment and the EU legal connection |
+| Clause 5 – Leadership | Name the accountable owner and reject the prohibited emotion-scoring proposal |
+| Clause 6 – Planning | Record proxy risks, affected groups and the legal applicability assessment |
+| Clause 7 – Support | Develop staff AI literacy and provide effective oversight training |
+| Clause 8 – Operation | Obtain vendor information, establish oversight, and prepare appropriate logging and escalation |
+| Clause 9 – Performance evaluation | Reassess subgroup outcomes and monitor changes after deployment |
+| Clause 10 – Improvement | Investigate the Week 4 disparity, document corrective action and verify whether it works |
+
+This is a conceptual connection to the [Week 5 portfolio](../Week%205/README.md), not a claim of ISO certification or an exact reproduction of every ISO requirement.
+
+The main learning is that **classification, legal timing and evidence are separate questions**. A high-risk label does not reveal which duties apply today. A fairness assurance needs output and data evidence, not just an input-column list. A detector's confident prose is not a substitute for an identifiable test result.
+
+## Sources and evidence notes
+
+- [Federation University Topic 6 lab](https://moodle.federation.edu.au/mod/lesson/view.php?id=9098743) supplies the fictional Saltbush and auction scenarios; institutional login is required.
+- [Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng) is read together with [Regulation (EU) 2026/1744](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744).
+- The linked screenshots preserve live tool results. Counts and legal conclusions are explained in the text so the portfolio remains readable without opening very tall captures.
+- Image transformations are supplied as clearly identified lab derivatives. They are not presented as photographs of a genuine antique.
+- **AI assistance:** Codex assisted with browsing, checker interaction, deterministic image transformations, source checking and drafting. Gemini was used for the recorded verification prompts. Personal attendance, tutor approval and unobserved detector outcomes have not been invented.
