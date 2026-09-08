@@ -1,0 +1,311 @@
+[
+  {
+    "file": "byzantine_icon.jpg",
+    "bytes": 1106154,
+    "sha256": "d28322208d7dde75728b9ef868a389c2bf2534dbf9cc9c7efe0c8e50db3a5ad5",
+    "app11_count": 3,
+    "markers": [
+      {
+        "marker": "0xe0",
+        "bytes": 16,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xeb",
+        "bytes": 65018,
+        "c2pa_jumbf": true
+      },
+      {
+        "marker": "0xeb",
+        "bytes": 65018,
+        "c2pa_jumbf": true
+      },
+      {
+        "marker": "0xeb",
+        "bytes": 16835,
+        "c2pa_jumbf": true
+      },
+      {
+        "marker": "0xdb",
+        "bytes": 132,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc0",
+        "bytes": 17,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 31,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 78,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 29,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 77,
+        "c2pa_jumbf": false
+      }
+    ],
+    "dimensions": [
+      "  pixelWidth: 992",
+      "  pixelHeight: 1075"
+    ]
+  },
+  {
+    "file": "icon-jpeg-q20.jpg",
+    "bytes": 115100,
+    "sha256": "df30a73f66cb8b3fb144fa0c71477976c1c724425ee336daf3434679c14847ec",
+    "app11_count": 0,
+    "markers": [
+      {
+        "marker": "0xe0",
+        "bytes": 16,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xe1",
+        "bytes": 76,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc0",
+        "bytes": 17,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 31,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 181,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 31,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 181,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xdb",
+        "bytes": 67,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xdb",
+        "bytes": 67,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xdd",
+        "bytes": 4,
+        "c2pa_jumbf": false
+      }
+    ],
+    "dimensions": [
+      "  pixelWidth: 992",
+      "  pixelHeight: 1075"
+    ]
+  },
+  {
+    "file": "icon-down-up.jpg",
+    "bytes": 174292,
+    "sha256": "5a7590901c64c8503cc75d5b68ddec34de3bef195836b296f64fd33856d3f74c",
+    "app11_count": 0,
+    "markers": [
+      {
+        "marker": "0xe0",
+        "bytes": 16,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xe1",
+        "bytes": 76,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc0",
+        "bytes": 17,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 31,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 181,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 31,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 181,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xdb",
+        "bytes": 67,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xdb",
+        "bytes": 67,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xdd",
+        "bytes": 4,
+        "c2pa_jumbf": false
+      }
+    ],
+    "dimensions": [
+      "  pixelWidth: 992",
+      "  pixelHeight: 1075"
+    ]
+  },
+  {
+    "file": "icon-screenshot-260.jpg",
+    "bytes": 40201,
+    "sha256": "0b4b1c55928862bc88f3f0ba642b3b2a0b161fd1dc8dab95d3ce77270a12879a",
+    "app11_count": 0,
+    "markers": [
+      {
+        "marker": "0xe0",
+        "bytes": 16,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xe1",
+        "bytes": 76,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xed",
+        "bytes": 56,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc0",
+        "bytes": 17,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 31,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 181,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 31,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 181,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xdb",
+        "bytes": 67,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xdb",
+        "bytes": 67,
+        "c2pa_jumbf": false
+      },
+      {
+        "marker": "0xdd",
+        "bytes": 4,
+        "c2pa_jumbf": false
+      }
+    ],
+    "dimensions": [
+      "  pixelWidth: 260",
+      "  pixelHeight: 282"
+    ]
+  },
+  {
+    "file": "icon-rotate-7.jpg",
+    "bytes": 171606,
+    "sha256": "b850b035dbc068acdc94bd0be4d433da980b963aa894343947b91a5905d1d9dc",
+    "app11_count": 0,
+    "markers": [
+      {
+        "marker": "0xe0",
+        "bytes": 16
+      },
+      {
+        "marker": "0xe1",
+        "bytes": 76
+      },
+      {
+        "marker": "0xed",
+        "bytes": 56
+      },
+      {
+        "marker": "0xc0",
+        "bytes": 17
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 31
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 181
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 31
+      },
+      {
+        "marker": "0xc4",
+        "bytes": 181
+      },
+      {
+        "marker": "0xdb",
+        "bytes": 67
+      },
+      {
+        "marker": "0xdb",
+        "bytes": 67
+      },
+      {
+        "marker": "0xdd",
+        "bytes": 4
+      }
+    ],
+    "dimensions": [
+      "  pixelWidth: 1115",
+      "  pixelHeight: 1188"
+    ]
+  }
+]

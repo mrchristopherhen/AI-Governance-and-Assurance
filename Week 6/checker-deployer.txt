@@ -1,0 +1,30 @@
+Results (stacking)
+High-risk AI system
+
+Under Article 6 your AI system is considered 'high-risk'. You will need to comply with specific obligations for high-risk systems depending on your entity type.
+
+Deployer obligations
+
+As a deployer of a high-risk AI system, you must comply with Article 26 obligations.
+
+These include:
+
+Taking appropriate technical and organisational measures to ensure the system is used in line with its instructions for use.
+Assigning competent, trained individuals to carry out effective human oversight, with appropriate support and resources.
+Monitoring the system’s performance based on the instructions and informing the provider if any risks or deviations are observed.
+Ensuring input data is relevant and representative, where you control that input.
+Keeping system logs (if under your control) for at least six months, unless otherwise provided by law.
+Ensuring cybersecurity and robustness measures are maintained and updated appropriately.
+If the system presents a risk or serious incident, immediately suspending its use and notifying the provider, distributor/importer, and relevant authorities without undue delay.
+Informing individuals when the system is used to make or assist in decisions affecting them (e.g. in hiring or education), including the purpose, type of decision, and their right to an explanation.
+Before using the system in the workplace, consulting workers’ representatives and informing affected workers, in accordance with employment law.
+Cooperating with competent authorities in all regulatory matters.
+
+Additional obligations apply to specific deployers:
+
+Public authorities must ensure the system is registered in the EU database (Article 49) and must not use unregistered systems.
+Law enforcement deployers using post-remote biometric identification must obtain prior judicial/administrative authorisation, use the system only under strict conditions, document each use, and submit annual reports.
+Deployers subject to GDPR or Law Enforcement Directive must use system documentation to support DPIA obligations.
+AI Literacy obligations
+
+You must take measures to ensure a sufficient level of AI literacy for your staff (and other people dealing with the operation and use of AI systems on their behalf), taking into account their technical knowledge, experience, education and training and the context the AI systems are to be used in, according to Article 4.
