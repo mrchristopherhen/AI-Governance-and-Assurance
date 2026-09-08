@@ -2,321 +2,386 @@ Week 6 – EU AI Act Risk Classification and Watermarking
 
 Overview
 
-This week focused on the EU AI Act and how the risk classification of an AI system depends on how and where the system is being used.
+This week continued with the Saltbush Group hiring classifier from Weeks 4 and 5, but introduced the EU AI Act and looked at what happens when the system is used outside Australia.
 
-The activities continued with the Saltbush Group hiring classifier from Weeks 4 and 5. This time, Saltbush has expanded its recruitment into Dublin, which means the classifier now has a connection to the European Union.
+The scenario now involved Saltbush using the classifier to shortlist applicants for jobs in Dublin. This created an important change because the system’s outputs are now being used within the European Union, even though Saltbush is an Australian organisation and the system is hosted in Sydney.
 
-I used the EU AI Act Compliance Checker to classify the system from both the deployer and provider perspectives. I then examined several features used by the classifier that could act as proxies for protected characteristics, assessed claims made by the vendor, changed the purpose of the system to see how its risk classification changed, and investigated a proposed video interview feature that would attempt to measure applicant enthusiasm and confidence.
+The activities focused on classifying the hiring system under the EU AI Act, comparing the responsibilities of Saltbush and the vendor, examining possible proxy variables for protected characteristics, assessing claims made by the vendor, and seeing how changing the purpose of an AI system can change its legal classification.
 
-The second part of the week focused on AI-generated image transparency. I tested an image containing both Content Credentials and Google’s SynthID watermark and then modified the image in several ways to see whether those signals survived.
-
-The main thing I found this week is that AI risk classification depends heavily on context. The same underlying technology can move from minimal risk to high risk or even prohibited depending on what it is being used to do.
+The final activity moved away from recruitment and looked at AI-generated image provenance. I tested Content Credentials and Google’s SynthID using a supplied image of a supposed Byzantine icon and then modified the image in several ways to see how well the different detection methods survived.
 
 ⸻
 
-Task 1 – Classifying the Saltbush Shortlisting System
+Task 1 – Classifying Saltbush’s Shortlisting System
 
-Does the EU AI Act Apply?
+Scope and Roles
 
-Saltbush is an Australian organisation and the classifier is hosted in Sydney. However, Saltbush is now using its output to help shortlist applicants for jobs in Dublin.
+Saltbush purchased the classifier from an external vendor and uses it without modifying it.
 
-This means the EU AI Act can still apply.
+For this scenario:
 
-Article 2(1)(c) covers providers and deployers located outside the European Union where the output produced by an AI system is used within the EU.
+* Saltbush is the deployer
+* The vendor is the provider
 
-Saltbush therefore cannot avoid the Act simply because the organisation and its servers are located in Australia.
+The fact that a recruiter can override the classifier does not remove the influence the system has over applicants. The classifier still ranks applicants and recommends who should be shortlisted for an interview.
 
-For the existing classifier:
+The system is also within the scope of the EU AI Act because its outputs are being used for recruitment in Dublin.
 
-* Saltbush is the deployer because it purchased and uses the classifier without modifying it.
-* The vendor is the provider because it supplies the AI system.
+Article 2(1)(c) covers situations where a provider or deployer is located outside the EU but the output produced by the AI system is used within the EU.
 
-The classifier is used to rank applicants and influence who receives an interview. Recruitment and applicant evaluation are listed as high-risk uses under Article 6 and Annex III of the AI Act.
+Because the classifier is being used to evaluate applicants for employment, the relevant high-risk classification comes from Article 6 and Annex III.
 
 Compliance Checker Results
 
-I completed the Future of Life Institute EU AI Act Compliance Checker twice: once for Saltbush as the deployer and once for the vendor as the provider.
+I completed the Future of Life Institute EU AI Act Compliance Checker twice so I could compare Saltbush’s responsibilities with those of the vendor.
 
-Run	Result	Main provision	Checker result
-Saltbush as deployer	High-risk AI system	Article 6 and Article 26	10 main deployer obligations, plus AI literacy and conditional obligations
+Run	Result	Main provision	Obligations shown
+Saltbush as deployer	High-risk AI system	Article 6 and Article 26	10 main deployer obligations, plus AI literacy and conditional requirements
 Vendor as provider	High-risk AI system	Article 6 and Article 16	12 main provider obligations, plus AI literacy
 
-Evidence:
+Evidence
 
 * Saltbush deployer checker screenshot
-* Saltbush deployer checker result
+* Saltbush deployer result text
 * Vendor provider checker screenshot
-* Vendor provider checker result
+* Vendor provider result text
 
-The risk classification did not change between the two runs. The difference was in the responsibilities attached to each role.
+The risk classification did not change between the two runs because the purpose of the system remained the same.
 
-The provider has more responsibility for demonstrating that the AI system itself meets the requirements of the Act. The checker identified areas such as technical documentation, quality management, conformity assessment, registration and corrective action.
+What changed was the type of responsibility.
 
-Saltbush’s responsibilities as the deployer are more focused on how the classifier is actually used. These include human oversight, monitoring, input data, logging and responding appropriately when problems are identified.
+The vendor has responsibilities associated with developing and demonstrating compliance of the system, including areas such as technical documentation, conformity assessment, quality management and corrective action.
 
-The obligation counts above are the number of items displayed by the checker. They should not be treated as a complete count of every possible legal obligation that could apply.
+Saltbush’s responsibilities are more focused on how the system is actually used, including human oversight, monitoring, input data, logging and responding to problems.
 
-Information I Would Still Need
+The checker was useful for identifying these differences, but completing the checker does not prove that Saltbush or the vendor is compliant.
 
-The checker gives Saltbush a useful starting point, but selecting answers in a compliance checker does not prove that the organisation is compliant.
+There is still information I would want before making that judgement, including:
 
-Before making a stronger assessment, I would want to know:
-
-* what bias testing the vendor has performed,
-* what technical documentation exists,
-* who controls and reviews the classifier’s logs,
-* how recruiters actually provide human oversight,
-* what data-protection arrangements exist,
-* when the classifier was first placed into service, and
-* whether Saltbush or the vendor has made significant changes to it.
-
-This is similar to the issue I found with ISO/IEC 42001 in Week 5. A claim about governance or compliance is only as useful as the evidence supporting it.
+* technical and bias-testing documentation,
+* information about who controls the system logs,
+* evidence of actual human oversight,
+* information about data-protection responsibilities,
+* when the system was first placed into service, and
+* whether significant changes have been made to the system.
 
 ⸻
 
 Features That Could Act as Proxies
 
-Saltbush and the vendor argue that the classifier does not use protected attributes such as gender directly.
+Removing protected characteristics from a dataset does not automatically remove the possibility of discrimination.
 
-However, removing a protected attribute does not necessarily remove the information associated with it.
+Several features used by the Saltbush classifier could potentially act as proxies for other characteristics.
 
-Several of the remaining features could potentially act as proxies.
+Feature	Possible proxy	Potential problem	Evidence I would need
+Continuous employment, with penalties for breaks longer than six months	Gender or disability	Parental leave, caring responsibilities or extended illness could create employment gaps unrelated to someone’s current ability to perform the job	Compare employment-gap patterns and selection outcomes between appropriate groups
+Year of earliest qualification	Age	Qualification dates can provide an approximate indication of someone’s age	Examine how the model uses qualification dates and compare similar applicants
+Postcode-derived distance band	Race, ethnicity or socioeconomic position	Residential patterns could cause particular communities to receive systematically different scores	Compare local demographic information with model outcomes and determine whether distance is genuinely required for the job
 
-Feature	Possible connection	Potential problem	Evidence I would want
-Continuous employment, with penalties for breaks over six months	Gender and potentially disability	Applicants who have taken parental, caring or extended health-related leave could be disadvantaged even when the employment break has little relationship to their ability to perform the job	Compare employment-gap patterns and selection outcomes between appropriate groups and test whether the penalty is actually job-relevant
-Year of earliest qualification	Age	Qualification dates can provide information about someone’s approximate age	Examine how the model treats qualification dates and compare otherwise similar applicants
-Postcode converted into near/far distance bands	Race, ethnicity or socioeconomic position	Residential patterns could cause particular communities to receive different scores	Examine local demographic information, model behaviour and whether distance is genuinely required for the role
+Other features such as experience, qualifications and keyword matching could also require investigation.
 
-These features do not prove that discrimination is occurring. However, they provide reasons to investigate whether apparently neutral inputs are producing unequal outcomes.
+However, a feature being correlated with a protected characteristic does not automatically prove discrimination. Evidence would still be required to determine how the classifier actually uses that information.
 
-The scenario also contains a likely_gender field inferred from applicant names. This field is stated to be used for correspondence rather than as an input to the classifier, so I would not claim that Saltbush is directly using gender to calculate the score.
+The scenario also contains a likely_gender field, but it is stated to be used for correspondence rather than as an input to the classifier.
 
-I would also be cautious about using inferred gender as evidence in a fairness audit because guessing gender from someone’s first name can itself be inaccurate.
+For that reason, I would not use the existence of this field as evidence that the classifier directly considers gender.
+
+It would also be unreliable to use gender inferred from someone’s first name as the main basis for a fairness audit.
 
 Connection to Week 4
 
-In Week 4, I calculated the following selection rates:
+In Week 4, I found the following selection rates:
 
 * Group A: 60%
 * Group B: 30%
 
-This is a 30 percentage-point difference, with Group B being selected at half the rate of Group A.
+This created a 30 percentage-point difference and a selection-rate ratio of 0.50.
 
-The sample was relatively small, so this result does not prove what caused the difference. It does, however, provide enough evidence to justify further investigation.
+Those results provide a reason to investigate the classifier, but they do not tell us what caused the difference or prove that one particular feature was responsible.
 
 Do the Proxy Features Change the Risk Classification?
 
 No.
 
-The classifier is high risk because it is being used for recruitment and applicant evaluation.
+The classifier is high risk because it is being used to evaluate people for employment.
 
-Changing or removing individual features does not change that purpose. Instead, the features affect the kinds of bias risks Saltbush needs to investigate and manage.
+Changing or removing individual features does not change that purpose.
 
-A recruiter being able to make the final decision also does not automatically remove the high-risk classification when the AI system is still ranking and evaluating applicants.
-
-⸻
-
-Which Provider Obligation Concerns Me Most?
-
-The area I would investigate first is the provider’s responsibility for data governance and identifying and addressing possible bias under Article 10.
-
-The vendor has provided Saltbush with a two-page feature sheet and says protected characteristics are not used.
-
-I do not think this is enough evidence.
-
-Removing columns labelled gender, race or age does not demonstrate that the remaining data has been properly tested for bias or that proxy variables are not producing substantially different outcomes.
-
-Other relevant areas include technical documentation and the information that providers are expected to give deployers.
-
-At this stage, I would describe this as a governance and assurance gap rather than automatically claiming that the vendor has breached the Act. The actual application dates and transition arrangements also need to be considered.
+The proxy features instead affect the fairness risks that Saltbush and the vendor need to investigate.
 
 ⸻
 
-Should Protected Attributes Be Used for a Fairness Audit?
+Provider Obligations and Bias
 
-I think carefully controlled use of accurate demographic information could actually put Saltbush in a better assurance position.
+One of the biggest concerns for the vendor is data governance and the requirement to examine and address possible bias.
 
-It is difficult to determine whether an AI system produces different outcomes between groups if the organisation has no reliable way to identify those groups.
+Article 10 includes requirements relating to the quality and governance of data used by high-risk AI systems.
 
-However, this information should be kept separate from the classifier’s operational scoring and only used where necessary for the audit. Access, retention and privacy would also need to be controlled.
+Simply saying that protected characteristics are not included as inputs does not demonstrate that the system is fair.
 
-Where enough data exists, Saltbush could also examine intersectional effects rather than looking at each characteristic completely separately.
+For example, postcode, employment history or qualification dates may still produce unequal outcomes even if gender or age are not directly supplied to the classifier.
 
-The amended EU AI Act provides a controlled route for providers and deployers to process certain sensitive information when it is genuinely necessary for detecting and correcting bias. This does not mean organisations have unrestricted permission to collect protected information.
+The vendor would therefore need evidence showing that the relevant datasets and model behaviour have been examined for bias.
+
+A two-page feature description and a statement that protected attributes have been removed would not be enough evidence for me to accept that the issue had been properly addressed.
+
+⸻
+
+Using Protected Attributes for Fairness Testing
+
+Using protected or demographic information during a controlled fairness audit can sometimes improve the organisation’s ability to identify unequal outcomes.
+
+The important distinction is that this information should be used for auditing rather than becoming another input used by the classifier to rank applicants.
+
+Any fairness audit should also use accurate information rather than guessing characteristics from names.
+
+Access should be restricted, the information should only be kept for as long as necessary, and Saltbush would still need to meet its privacy and data-protection obligations.
+
+The EU AI Act provides a controlled pathway for processing certain sensitive information for bias detection and correction, but this does not create unlimited permission to collect demographic information.
+
+The organisation would still need to justify why the information is necessary and how it will be protected.
 
 ⸻
 
 Task 2 – Responding to the Vendor’s Claims
 
-The next activity involved assessing several claims made by the classifier vendor.
+The vendor made several claims about why Saltbush should not be concerned about the EU AI Act.
 
-Vendor claim	My assessment	Why
-Australia and Sydney hosting mean the EU AI Act does not apply	Disagree	The classifier’s output is being used for recruitment in Dublin, creating the required EU connection
-Shortlisting is only a narrow procedural task and is exempt	Disagree	Ranking applicants can materially influence whether someone receives an interview and is more than an administrative task
-Removing protected inputs means there cannot be a fairness problem	Disagree	Proxy variables and unequal outcomes can still exist even when protected characteristics are removed
-High-risk obligations do not apply until 2027, so nothing needs to be done now	Partly agree with the timing, but disagree with the conclusion	Some high-risk requirements are deferred, but other AI Act requirements already apply and existing privacy and discrimination responsibilities do not disappear
-The proposed enthusiasm feature is high risk and can be used if properly documented	Disagree	If the feature infers emotions from biometric video or voice information in recruitment, it falls within the workplace emotion-recognition prohibition
+I assessed each claim separately.
 
-The final claim is particularly important.
+Vendor claim	My assessment	Reason
+Australia and Sydney hosting mean the EU AI Act does not apply	Disagree	The classifier’s outputs are being used for recruitment in Dublin, creating the required connection with the EU
+Shortlisting is only a narrow procedural task	Disagree	Ranking applicants directly influences who receives an interview
+Removing protected inputs removes the fairness problem	Disagree	Proxy variables and unequal outcomes can still exist
+High-risk requirements are delayed, so nothing needs to be done now	Partly agree with the timing, but disagree with the conclusion	Some high-risk obligations are deferred, but other requirements and existing privacy and discrimination responsibilities still matter
+The proposed enthusiasm-scoring feature is high risk and can be used if documented properly	Disagree	Workplace emotion inference using biometric information can fall within prohibited AI practices
 
-Saltbush is considering adding a system that would analyse video interviews and score candidates based on characteristics such as enthusiasm or confidence.
+The final claim was particularly important.
 
-If the system attempts to infer a person’s emotional state using biometric information from their face or voice, Article 5’s prohibition on emotion recognition in workplaces becomes relevant.
+If the proposed feature analyses someone’s face or voice to determine whether they appear enthusiastic or confident during an interview, documentation would not automatically make that use acceptable.
 
-Documentation does not turn a prohibited use into an acceptable high-risk use.
-
-If the system instead assessed the actual content of an applicant’s answers against a skills rubric without attempting to infer emotions, it would need to be assessed differently.
+A prohibited AI practice cannot simply be converted into a compliant one by creating more paperwork.
 
 ⸻
 
 Who Checks the Checker?
 
-I also looked at the information provided by the Future of Life Institute compliance checker itself.
+I also looked at the information provided by the compliance checker itself.
 
-Item	Date shown
+Item	Recorded information
 Latest changelog entry	3 July 2025
-Official AI Act text the checker says it reflects	13 June 2024
+Official text the checker says it reflects	13 June 2024
 
-The checker is produced by the Future of Life Institute rather than an EU institution.
+The checker is provided by the Future of Life Institute rather than an EU institution.
 
-This does not make it useless. I found it helpful for working through the classification process and identifying possible obligations.
+This means I would treat it as a useful classification tool rather than official proof of legal compliance.
 
-However, I would not describe it as an official EU compliance tool.
+This became especially important because the legislation has continued to change since the dates shown by the checker.
 
-The dates are also important because the checker predates the 2026 amendments to the AI Act. This means its output should be checked against the current legislation before relying on it.
+What Obligations Apply Now?
 
-⸻
+As of 8 September 2026, the main Annex III high-risk deployer obligations shown by the checker have not all begun applying through the current timetable.
 
-Which Obligations Apply Now?
+AI literacy requirements already apply.
 
-This was one of the more confusing parts of the activity because classification and application dates are separate questions.
+The current timetable recorded during the activity was:
 
-Saltbush’s classifier can be classified as a high-risk system even though the main Annex III high-risk obligations have not all started applying yet.
-
-As at 8 September 2026, the checker displayed 10 main high-risk deployer obligations, but those obligations have not yet begun applying through the Annex III timetable.
-
-AI literacy is different because that requirement has already begun applying.
-
-The current timetable I recorded was:
-
-Date	Relevant stage
-2 February 2025	Chapters I and II begin applying, including AI literacy and the original prohibited practices
+Date	Stage
+2 February 2025	Chapters I and II, including AI literacy and original prohibited practices
 2 August 2025	General-purpose AI model obligations begin, subject to transition arrangements
 2 August 2026	Article 50 transparency requirements generally begin
 2 December 2026	Additional transparency transition requirements and new prohibited practices
 2 December 2027	Annex III high-risk requirements and obligations
-2 August 2028	Relevant high-risk requirements for regulated-product systems
+2 August 2028	Relevant high-risk regulated-product requirements
 
-There is another complication because Saltbush’s classifier has already been operating for approximately 18 months.
+The classifier has already been operating for approximately eighteen months.
 
-The AI Act contains transition arrangements for some systems that were already in use. This means I would need to establish when this particular deployment began and whether significant changes have been made before claiming that every high-risk obligation automatically applies to it from December 2027.
-
-This reinforced an important point for me: being classified as high risk does not automatically tell me which obligations apply today.
+This means its deployment history and any significant changes made to the system would also need to be considered rather than assuming that every future requirement automatically applies to an unchanged existing system.
 
 ⸻
 
 Which System Is the More Urgent Problem?
 
-The proposed enthusiasm-scoring system creates the most urgent legal decision because Saltbush should not deploy it if it performs prohibited workplace emotion recognition.
+The proposed enthusiasm-scoring system creates the most immediate legal concern because Saltbush should not deploy a system that performs prohibited workplace emotion inference.
 
-However, the existing classifier creates the more immediate operational fairness problem because it is already being used.
+However, the existing hiring classifier creates a different problem.
 
-I therefore see the two problems differently.
+It is already operating and Week 4 identified a substantial difference between Group A and Group B selection rates.
 
-The enthusiasm system requires a do not deploy decision.
+I would therefore treat them as two different types of urgency:
 
-The existing classifier requires Saltbush to investigate the fairness gap, improve monitoring and determine whether the system is producing unjustified differences between groups.
-
-⸻
-
-What Changes in December 2026?
-
-The 2026 amendment also adds new prohibited practices involving certain AI-generated or manipulated non-consensual intimate material and child sexual abuse material.
-
-These provisions are more specific than simply banning AI-generated images.
-
-The distinction matters because it shows why reading the actual scope of a legal requirement is important instead of reducing it to a broad statement such as “AI-generated images become illegal.”
+* Do not deploy the proposed emotion-scoring feature
+* Investigate the fairness of the existing classifier
 
 ⸻
 
 What Is the Compliance Checker Good For?
 
-I would use the checker as:
+I think the checker is useful for:
 
-* a starting point for classification,
-* a way of identifying relevant sections of the Act, and
-* a checklist of issues that need further investigation.
+* identifying an initial AI Act risk classification,
+* identifying possible obligations,
+* comparing provider and deployer responsibilities, and
+* identifying legislation that needs further investigation.
 
-I would not use it as proof that an organisation is legally compliant.
+I would not use the checker by itself to declare that an organisation is legally compliant.
 
-The final decision should be based on the current legislation and evidence about how the AI system actually works and is being used.
+The output still needs to be checked against the legislation and the actual facts surrounding the AI system.
 
 ⸻
 
 Task 3 – Changing the Use and Reassessing the Risk
 
-The next activity demonstrated how much the purpose of an AI system affects its classification.
+This activity demonstrated how much the purpose of an AI system matters when determining its risk classification.
 
-I changed what the system was being used to do and compared the results.
+I tested or assessed several different uses.
 
-Scenario	Result	Why
-Sort ordinary supplier invoices by urgency	Minimal risk	The system is no longer being used for recruitment or another high-risk purpose
-Score interview enthusiasm or confidence from biometric video cues	Prohibited	Workplace emotion inference using biometric information is prohibited
-Add a conversational explanation system for rejected candidates	Hiring system remains high risk, with additional transparency considerations	The underlying recruitment use remains high risk and candidates are now directly interacting with AI
+Scenario	Result	Reason	Evidence
+Sort ordinary supplier invoices by urgency	Minimal risk	The system is no longer being used for employment decisions or another identified high-risk purpose	Invoice checker run
+Score interview enthusiasm or confidence from biometric video cues	Prohibited	Workplace emotion inference can fall under Article 5 prohibited practices	Enthusiasm checker run
+Add a conversational explanation system for rejected applicants	Hiring remains high risk with additional transparency considerations	The underlying employment system remains high risk and the conversational system introduces direct AI interaction with applicants	Analysis based on Article 50
 
-Evidence:
+The first scenario was particularly useful because the underlying technology could potentially remain similar while its legal classification changes because its purpose has changed.
 
-* Invoice checker result
-* Enthusiasm checker result
+Sorting ordinary invoices does not affect someone’s access to employment, so the high-risk employment classification no longer applies.
 
-The invoice example was particularly useful because the underlying technology could still be some form of AI classifier, but its legal risk classification changed because its purpose changed.
+The enthusiasm-scoring scenario moved in the opposite direction.
 
-Sorting invoices does not have the same effect on a person’s employment opportunities as ranking job applicants.
-
-The enthusiasm example went in the opposite direction. Instead of simply becoming more heavily regulated, the proposed use crossed into a prohibited category.
+Instead of simply becoming another high-risk recruitment tool, emotion inference in the workplace can fall into the prohibited category.
 
 ⸻
 
 Conversational Explanations for Rejected Applicants
 
-Saltbush could also add a conversational AI system that explains decisions to rejected applicants.
+Adding an AI chatbot that explains rejection decisions would not remove the original high-risk classification.
 
-This would not remove the high-risk classification of the recruitment system.
+The hiring system would still be influencing employment decisions.
 
-It would instead create additional transparency issues because candidates would now be interacting directly with AI.
+The conversational system would introduce additional transparency considerations because applicants would be interacting directly with AI.
 
-I think candidates should be clearly told that they are interacting with an AI system unless this is already obvious. This information should appear at the beginning of the interaction rather than being hidden somewhere in a privacy policy.
+Applicants should be clearly told that they are interacting with an AI system unless this is already obvious.
 
-There should also be a practical way to request human review.
+I would also provide a clear way for applicants to request human review.
 
-Another important issue would be making sure the explanation reflects the real reason for the classifier’s recommendation. A language model generating a believable explanation is not useful if that explanation does not match what actually influenced the decision.
+Another important control would be ensuring that the chatbot only explains genuine reasons associated with the recruitment decision.
 
-The organisation would also need to determine who is acting as the provider of the conversational system. If Saltbush develops and releases the front-end itself, its responsibilities could be different from simply deploying a system supplied by the existing vendor.
+A language model generating a convincing but incorrect explanation would create another governance problem rather than solving the first one.
 
 ⸻
 
-Task 4 – Testing the Byzantine Icon’s Provenance
+Task 4 – Testing the Byzantine Icon
 
-The final activity moved away from the Saltbush classifier and focused on AI-generated image transparency.
+The final activity involved a supplied image of a supposed Byzantine icon.
 
-The supplied image supposedly showed an eleventh-century Byzantine religious icon being sold at auction.
+The image shows a haloed figure in traditional religious iconography holding an electric guitar.
 
-There was one fairly spectacular problem with that claim.
+That immediately creates a fairly obvious problem with the claim that the object is an authentic eleventh-century Byzantine icon.
 
-The figure in the image is holding an electric guitar.
+The scenario also included other warning signs such as limited provenance, a single photograph and a recently created seller account.
 
-That does not by itself tell me exactly how the image was created, but it gives me a very good reason to question the claimed provenance of the object.
-
-The listing also had limited provenance information, only one photograph and a recently created seller account.
-
-I therefore tested the supplied image using Content Credentials and Google’s SynthID verification.
+These details would make me want additional evidence before accepting the seller’s claims.
 
 ⸻
 
 Original Image
 
-The supplied byzantine_icon.jpg was a 992 × 1075 JPEG.
+The supplied image was:
+
+* 992 × 1075 pixels
+* JPEG format
 
 Its SHA-256 hash was:
 
-d28322208d
+d28322208d7dde75728b9ef868a389c2bf2534dbf9cc9c7efe0c8e50db3a5ad5
+
+I first tested the original image using the Content Credentials verifier.
+
+The verifier identified AI-generation provenance associated with Google LLC, with Google Media Processing Services shown as the issuer.
+
+The credentials showed an issuance time of 24 August 2026 at 10:57 PM GMT+10.
+
+Evidence
+
+* Original Content Credentials result
+* Gemini baseline response
+* Complete Gemini lab transcript
+
+Gemini also reported that the original contained a valid watermark.
+
+However, its initial explanation mixed information from Content Credentials with its SynthID result.
+
+For the later tests, I specifically asked Gemini to separate the watermark result from metadata and visual analysis.
+
+⸻
+
+Content Credentials and SynthID
+
+The two systems work differently.
+
+Content Credentials provide provenance information associated with the file.
+
+SynthID places a signal within the media itself.
+
+This means modifying or exporting a file may remove its original provenance information while a watermark embedded into the visual content may still survive.
+
+I wanted to test how this difference behaved in practice.
+
+⸻
+
+Predictions and Transformations
+
+Before testing the modified images, I recorded what I expected to happen.
+
+Each transformation was created from the original image rather than applying modifications on top of previous modifications.
+
+Attempt	My prediction	Content Credentials result	SynthID result	Image usefulness
+Original	Provenance and watermark should both remain	Google-issued AI-generation credentials detected	Gemini reported watermark present	Detailed enough for a listing, although the electric guitar remains an obvious problem
+Screenshot, crop and JPEG save at 260 × 282	Credentials would probably disappear but the watermark might survive	Original embedded provenance was no longer present in local header inspection	Positive according to Gemini	Recognisable but too small for detailed inspection
+JPEG quality 20 at 992 × 1075	Export may remove credentials but SynthID may survive compression	Embedded provenance was no longer present	Positive according to Gemini	Still usable as a listing image despite visible compression
+Resize to 124 × 134 and enlarge back to 992 × 1075	Severe resizing might interfere with watermark detection	Embedded provenance was no longer present	Positive according to Gemini	Clearly degraded and unsuitable for properly inspecting an expensive antique
+Rotate seven degrees and export at JPEG quality 35	Geometric changes might interfere with detection	Embedded provenance was no longer present	Unavailable because Gemini reported a quota error	Still recognisable but the rotation and black corners reduce presentation quality
+
+Evidence
+
+* Prediction log
+* Screenshot transformation
+* JPEG quality 20 transformation
+* Downscale and upscale transformation
+* Rotated transformation
+* File manifest
+
+I also kept screenshots of the Content Credentials verifier during the transformed-image tests:
+
+* Screenshot test
+* JPEG compression test
+* Resize test
+* Rotation test
+
+One limitation is that the Content Credentials verifier returned to its starting screen rather than displaying an explicit negative result for the transformed images.
+
+Local inspection provided additional evidence.
+
+The original JPEG contained three APP11 segments, while the transformed versions contained zero.
+
+This supports the conclusion that the embedded provenance information was removed from the transformed files, but it does not test SynthID or prove that no other provenance information could exist elsewhere.
+
+⸻
+
+Reproducing the Image Transformations
+
+The following macOS commands reproduce the JPEG compression, resizing and rotation tests:
+
+sips -s format jpeg -s formatOptions 20 byzantine_icon.jpg --out icon-jpeg-q20.jpg
+sips --resampleHeightWidth 134 124 byzantine_icon.jpg --out icon-small.jpg
+sips --resampleHeightWidth 1075 992 -s format jpeg -s formatOptions 80 icon-small.jpg --out icon-down-up.jpg
+sips --rotate 7 -s format jpeg -s formatOptions 35 byzantine_icon.jpg --out icon-rotate-7.jpg
+
+The screenshot test was created by displaying the image at 260 pixels wide, taking a screenshot and cropping the image area before saving it as JPEG.
+
+Because that test combines resizing, screenshot capture, cropping and JPEG conversion, it does not show which individual operation caused the change.
+
+⸻
+
+Which Detector Was Easier to Defeat?
+
+The embedded Content Credentials were
