@@ -273,7 +273,6 @@ The Gemini case added another lesson. Governance methods must match the type of 
 
 ## Evidence
 
-- [Completed COMPAS fairness-audit workbook](evidence/COMPAS_Fairness_Audit_Completed.xlsx)
 - The workbook preserves the original `RAW DATA` and `Column Guide` sheets and adds formula-driven `Task 1`, `Task 2` and `Optional Model` sheets.
 - The four case-study analyses are based on the videos in the Week 8 Moodle Book. The Moodle link may require Federation University authentication.
 
