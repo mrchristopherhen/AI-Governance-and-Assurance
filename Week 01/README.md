@@ -1,4 +1,4 @@
-# Week 1 – Introduction to AI Governance and Assurance
+# Week 01 – Introduction to AI Governance and Assurance
 
 ## Overview
 

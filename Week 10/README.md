@@ -210,7 +210,7 @@ I would also distinguish the cause of the unfair outcome from the cause of late 
 
 The transferable problem is the monitoring design: relying on averages, convenience measures or disconnected feedback can hide important risks. It is not a claim that every system has the same classifier defect.
 
-I used the [Week 9 AI register and proposed owners](../Week%209/README.md) to identify the following checks.
+I used the [Week 9 AI register and proposed owners](../Week%2009/README.md) to identify the following checks.
 
 | Other registered system | Proposed owner | Monitoring weakness to check | Evidence or improvement needed |
 | --- | --- | --- | --- |
@@ -345,4 +345,4 @@ The main lesson for me is that monitoring becomes useful when its findings reach
 - Federation University Australia. (2026). [Learning activity – Topic 10](https://moodle.federation.edu.au/mod/lesson/view.php?id=9128317). ITECH2119 Moodle. Source of the Saltbush scenario, October–September monitoring figures, task instructions and the Clause 9.1/10.2 extracts used in this entry; university login required.
 - International Organization for Standardization. (2023). [ISO/IEC 42001:2023 – Artificial intelligence management systems](https://www.iso.org/standard/42001). Standard overview; the detailed clause extracts used here were supplied in the Moodle activity.
 - Schwartz, R., Vassilev, A., Greene, K., Perine, L., Burt, A., & Hall, P. (2022). [Towards a standard for identifying and managing bias in artificial intelligence](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270.pdf) (NIST Special Publication 1270). National Institute of Standards and Technology.
-- [Week 9 – Organisational Governance of AI](../Week%209/README.md). Previous portfolio entry used for the system owners, AI register and Governance and compliance section.
+- [Week 9 – Organisational Governance of AI](../Week%2009/README.md). Previous portfolio entry used for the system owners, AI register and Governance and compliance section.

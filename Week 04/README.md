@@ -1,4 +1,4 @@
-# Week 4 – Probing AI Bias and Fairness
+# Week 04 – Probing AI Bias and Fairness
 
 ## Overview
 

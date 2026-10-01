@@ -1,4 +1,4 @@
-# Week 5 – AI Management Systems and ISO/IEC 42001
+# Week 05 – AI Management Systems and ISO/IEC 42001
 
 ## Overview
 

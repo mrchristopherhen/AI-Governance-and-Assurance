@@ -1,4 +1,4 @@
-# Week 8 – Bias, Fairness, Transparency and Explainability
+# Week 08 – Bias, Fairness, Transparency and Explainability
 
 ## Overview
 

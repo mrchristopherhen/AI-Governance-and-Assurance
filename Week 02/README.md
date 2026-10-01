@@ -1,4 +1,4 @@
-# Week 2 – Ethical Frameworks for AI
+# Week 02 – Ethical Frameworks for AI
 
 ## Overview
 

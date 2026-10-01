@@ -1,4 +1,4 @@
-# Week 6 – EU AI Act Risk Classification and Watermarking
+# Week 06 – EU AI Act Risk Classification and Watermarking
 
 ## Overview
 
@@ -62,7 +62,7 @@ Experience, qualifications and keyword matching also deserve testing, but correl
 
 The `likely_gender` field is stated to be used for correspondence, **not as a model input**. It must not be presented as proof that the classifier directly uses gender. Inferring gender from first names is also an unreliable basis for either respectful correspondence or a fairness audit.
 
-Week 4 recorded selection rates of **60% for Group A and 30% for Group B**: a **30 percentage-point gap** and a **0.50 selection-rate ratio**. Those small samples flag a problem to investigate; they do not identify the cause or establish that Group B represents women. [Week 4 portfolio](../Week%204/README.md)
+Week 4 recorded selection rates of **60% for Group A and 30% for Group B**: a **30 percentage-point gap** and a **0.50 selection-rate ratio**. Those small samples flag a problem to investigate; they do not identify the cause or establish that Group B represents women. [Week 4 portfolio](../Week%2004/README.md)
 
 ### Do the features change the tier?
 
@@ -241,7 +241,7 @@ The optional Colab text-watermarking challenge was not performed.
 | Clause 9 – Performance evaluation | Reassess subgroup outcomes and monitor changes after deployment |
 | Clause 10 – Improvement | Investigate the Week 4 disparity, document corrective action and verify whether it works |
 
-This is a conceptual connection to the [Week 5 portfolio](../Week%205/README.md), not a claim of ISO certification or an exact reproduction of every ISO requirement.
+This is a conceptual connection to the [Week 5 portfolio](../Week%2005/README.md), not a claim of ISO certification or an exact reproduction of every ISO requirement.
 
 ---
 

@@ -1,4 +1,4 @@
-# Week 9 – Organisational Governance of AI
+# Week 09 – Organisational Governance of AI
 
 ## Overview
 
@@ -70,7 +70,7 @@ The register date is **1 October 2026**, the date this portfolio register was pr
 
 ### Bringing Forward the Topic 3 Tool
 
-My [Week 3 portfolio](https://github.com/mrchristopherhen/AI-Governance-and-Assurance/tree/main/Week%203) identifies **OpenAI ChatGPT**, examined as a consumer product while signed out.
+My [Week 3 portfolio](../Week%2003/README.md) identifies **OpenAI ChatGPT**, examined as a consumer product while signed out.
 
 For this week's hypothetical extension, I assumed Saltbush customer-service staff have begun pasting customer enquiry emails into consumer ChatGPT to draft replies without approval. That use is an assumption for the activity; it is not part of Dev's evidence pack.
 
@@ -251,4 +251,4 @@ For me, the key question is now: when an AI system causes a problem, can the org
 - Australian Institute of Company Directors & Human Technology Institute. (2026). [A director's guide to AI governance](https://www.aicd.com.au/content/dam/aicd/pdf/news-media/research/2026/director-guide-to-ai-governance.pdf) (Version 2, pp. 27, 31–34).
 - European Commission. (2025). [Guidelines on prohibited artificial intelligence practices established by Regulation (EU) 2024/1689](https://ai-act-service-desk.ec.europa.eu/sites/default/files/2025-08/guidelines_on_prohibited_artificial_intelligence_practices_established_by_regulation_eu_20241689_ai_act_english_ied3r5nwo50xggpcfmwckm3nuc_112367-1.PDF) (Section 7).
 - Office of the Australian Information Commissioner. (2025). [Guidance on privacy and the use of commercially available AI products](https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/guidance-on-privacy-and-the-use-of-commercially-available-ai-products).
-- [Week 3 – Australian Law, Privacy and AI Systems](https://github.com/mrchristopherhen/AI-Governance-and-Assurance/tree/main/Week%203). Earlier portfolio entry used to identify the previously audited tool.
+- [Week 3 – Australian Law, Privacy and AI Systems](../Week%2003/README.md). Earlier portfolio entry used to identify the previously audited tool.

@@ -1,4 +1,4 @@
-# Week 7 – Human Factors in AI Systems
+# Week 07 – Human Factors in AI Systems
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# Week 3 – Australian Law, Privacy and AI Systems
+# Week 03 – Australian Law, Privacy and AI Systems
 
 ## Overview
 
