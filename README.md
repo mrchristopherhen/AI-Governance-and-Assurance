@@ -13,16 +13,16 @@ The portfolio explores how artificial intelligence and automated systems are gov
 
 | Week | Topic | Status |
 |---|---|---|
-| [Week 1](./Week%201/) | Introduction to AI Governance and Assurance | ✅ Complete |
+| [Week 1](./Week%201/) | What is AI anyway? | ✅ Complete |
 | [Week 2](./Week%202/) | Ethical Frameworks for AI | ✅ Complete |
 | [Week 3](./Week%203/) | Australian Law, Privacy and AI Systems | ✅ Complete |
-| [Week 4](./Week%204/) | Probing AI Bias and Fairness | ✅ Complete |
-| [Week 5](./Week%205/) | AI Management Systems and ISO/IEC 42001 | ✅ Complete |
-| [Week 6](./Week%206/) | To be added | ⏳ Upcoming |
-| [Week 7](./Week%207/) | To be added | ⏳ Upcoming |
-| [Week 8](./Week%208/) | To be added | ⏳ Upcoming |
-| [Week 9](./Week%209/) | To be added | ⏳ Upcoming |
-| [Week 10](./Week%2010/) | To be added | ⏳ Upcoming |
+| [Week 4](./Week%204/) | AI Failure Modes | ✅ Complete |
+| [Week 5](./Week%205/) | AI Management Systems | ✅ Complete |
+| [Week 6](./Week%206/) | Risk Classification and International Laws | ✅ Complete |
+| [Week 7](./Week%207/) | Human Factors in AI Systems | ✅ Complete |
+| [Week 8](./Week%208/) | Bias, Fairness, Transparency, and Explainability | ✅ Complete |
+| [Week 9](./Week%209/) | Organizational Governance of AI | ✅ Complete |
+| [Week 10](./Week%2010/) | Assurance and Quality Management | ✅ Complete |
 
 ---
 
@@ -30,13 +30,13 @@ The portfolio explores how artificial intelligence and automated systems are gov
 
 Throughout this portfolio, I will examine:
 
-- AI governance and assurance
-- AI incidents and real-world harm
-- Risk taxonomies and causal analysis
-- Accountability and transparency
-- Human oversight and automated decision-making
-- Privacy, fairness, safety, and security
-- The relationship between AI governance and cybersecurity governance
+- AI Governance and Assurance
+- AI Incidents and Real-World harm
+- Risk Taxonomies and Causal Analysis
+- Accountability and Transparency
+- Human oversight and Automated Decision-making
+- Privacy, Fairness, Safety, and Security
+- The relationship between AI Governance and Cybersecurity Governance
 
 ---
 
