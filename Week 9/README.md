@@ -8,9 +8,11 @@ The activities returned to Saltbush Group. Earlier weeks identified a 60% versus
 
 I reviewed its software list, vendor release notes, purchase records and staff messages to identify AI systems. I then prepared an AI register, proposed system owners and screening outcomes, and reviewed the Governance and compliance section of the HR manager's draft AI policy.
 
-I also drafted a replacement Governance and compliance section. The Moodle lesson reached its end with **6 out of 6 knowledge-check answers correct (100%)**. That result records the online lesson checks; it does not establish tutorial attendance or tutor-awarded portfolio marks.
+I also drafted a replacement Governance and compliance section that defines responsibilities, approval pathways, incident management and controls for reducing shadow AI.
 
 The main issue is that AI governance needs to reach the people who purchase systems, manage business processes, review outcomes and respond to complaints. Appointing a Head of AI does not resolve those responsibilities by itself.
+
+---
 
 ## Task 1 – Finding the AI
 
@@ -74,6 +76,8 @@ For this week's hypothetical extension, I assumed Saltbush customer-service staf
 
 I recorded the model/version as unknown. I would also check the current account arrangements, provider terms and privacy controls before approving the use. The observations recorded in Week 3 should not be treated as a fresh test of today's settings.
 
+---
+
 ## Task 2 – System Owners and Screening Outcomes
 
 I selected people whose existing roles give them responsibility for the business process or shared service involved. These are proposed assignments for the activity, rather than evidence that Saltbush has already appointed them.
@@ -125,6 +129,8 @@ Saltbush should keep the proposal in its register with the reason for rejection.
 
 For the hypothetical ChatGPT use, I would stop identifiable customer information being entered while the use is reviewed and offer an approved way to draft replies using suitable data. This is consistent with the OAIC's recommendation against entering personal, especially sensitive, information into public generative AI tools. [OAIC guidance](https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/guidance-on-privacy-and-the-use-of-commercially-available-ai-products).
 
+---
+
 ## Task 3 – Reviewing Kath's Draft AI Policy
 
 Kath's draft creates some useful starting points. It recognises a need for approval and gives RouteWise and the customer chatbot named owners. However, it leaves important gaps in authority, independent review, coverage and incident handling.
@@ -147,6 +153,8 @@ I identified the following faults. Where the source does not prescribe a particu
 | 12. Monitoring, review and vendor responsibilities are unclear | There is no policy review cycle, reporting process or explanation of how vendor obligations connect to Saltbush's responsibilities. | Add review triggers, monitoring records and documented supplier responsibilities. The NAIC template covers review and third-party accountability; the AICD/HTI guide supports reporting to leadership. Vendor technical support does not replace Saltbush's ownership of its use. |
 
 The principal sources for this review were the [NAIC policy template](https://www.ai.gov.au/sites/default/files/2026-06/AI-policy-guide-and-template.docx), the [AICD/HTI guide, pages 27 and 31–34](https://www.aicd.com.au/content/dam/aicd/pdf/news-media/research/2026/director-guide-to-ai-governance.pdf), and the [Moodle evidence pack and draft policy](https://moodle.federation.edu.au/mod/lesson/view.php?id=9121455).
+
+---
 
 ## Task 4 – Writing a Better Governance and Compliance Section
 
@@ -214,6 +222,8 @@ Saltbush should provide a practical route to request useful tools, clear rules a
 
 Reporting needs to be easy enough that staff will raise concerns before harm spreads. The finance analyst's message and the warehouse team leader's complaint are useful governance evidence, even though neither is a completed investigation.
 
+---
+
 ## Week 9 Reflection
 
 This week connected the earlier risk and fairness activities to the people who need to act on their findings.
@@ -229,6 +239,8 @@ The policy review showed why governance has to be practical. A committee that me
 The strongest connection to Week 5 is the need for evidence. The AI register makes systems visible, but recording an owner or a screening category is only the starting point. Saltbush still needs assessments, testing, monitoring, reporting and corrective action that work in practice.
 
 For me, the key question is now: when an AI system causes a problem, can the organisation identify who must respond, what authority they have, where concerns go and how affected people obtain a remedy?
+
+---
 
 ## References
 
