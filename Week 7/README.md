@@ -4,20 +4,13 @@
 
 This week focused on the human factors that affect AI governance, including trust, over-reliance, expertise, transparency, human oversight and accountability.
 
-The opening checkpoint described a healthcare setting where staff gradually stop checking an AI decision-support tool and begin agreeing with its recommendations. The name for this phenomenon is **automation bias**. It is not simply a technical failure. It occurs when the way people use a system reduces their willingness or ability to independently assess its output.
+The opening checkpoint described a healthcare setting where staff gradually stop checking an AI decision-support tool and begin agreeing with its recommendations. This demonstrated automation bias, where people become more likely to accept an automated recommendation without independently assessing whether it is correct. It is not simply a technical failure. It occurs when the way people use a system reduces their willingness or ability to independently assess its output.
 
 I then completed *Survival of the Best Fit*, a browser game about training and deploying an automated hiring system. The game demonstrated how apparently reasonable individual decisions can become training labels, how historical data can reproduce unequal opportunities, and how automation can amplify those patterns faster than a human can review them.
 
-The activities required me to:
 
-- identify where bias entered and was amplified by the hiring system;
-- determine when meaningful human oversight broke down;
-- apply the same ideas to real hiring, lending and admissions systems;
-- propose a governance mechanism adapted from healthcare;
-- allocate accountability between the founder, engineer and hiring manager; and
-- design a workflow that supports appropriate trust rather than automatic acceptance or rejection of AI advice.
 
-## Activity 1 – Survival of the Best Fit
+## Task 1 – Survival of the Best Fit
 
 ### What Happened in My Game
 
@@ -87,7 +80,7 @@ The hiring manager therefore became a passive observer. The presence of a human 
 
 The manager's inability to explain Elvan's rejection also reduced the ability to detect mistakes. The problem was found through a complaint and a later group-level analysis, not through routine oversight.
 
-## Activity 2 – Bias Review
+## Task 2 – Bias Review
 
 ### Where the Same Dynamic Appears in Real Systems
 
@@ -117,7 +110,7 @@ Second, it delayed recognition of the broader pattern. I needed a complaint and 
 
 The game therefore showed that transparency is not only about publishing a general description of a model. The people responsible for decisions need information that helps them question a particular result and monitor the pattern created by many results.
 
-## Activity 3 – Governance Brainstorm
+## Task 3 – Governance Brainstorm
 
 ### Governance Mechanism Borrowed from Healthcare
 
@@ -179,6 +172,8 @@ The second-review trigger creates useful friction at the point where human and m
 
 Research on automation bias supports this direction. A systematic review found that workload, task complexity and time pressure can increase the risk of over-reliance, while user accountability and the way advice is presented can help mitigate it.
 
+---
+
 ## Week 7 Reflection
 
 This week showed me why putting a human in the loop is not enough by itself.
@@ -198,6 +193,8 @@ My main takeaway is that appropriate trust must be designed.
 People should not be expected to rely on an AI system simply because it is fast, and they should not reject it simply because it can make mistakes. They need evidence about when it works, information that helps them question individual outputs, time to exercise judgement, and a clear escalation path when the evidence does not support continued use.
 
 The strongest safeguard is therefore not a single fairness metric or a human approval box. It is a governance process that connects individual review, group-level monitoring, independent assurance, complaints, accountability and the authority to stop the system.
+
+---
 
 ## References
 
