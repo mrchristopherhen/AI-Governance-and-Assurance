@@ -6,15 +6,7 @@ This week focused on four related but different ideas in AI governance: bias, fa
 
 I examined these ideas through four case studies in the Week 8 Moodle Book: COMPAS criminal-risk scoring, the Dutch childcare-benefits scandal, SafeRent tenant screening and Google's Gemini image-generation incident. I then audited the supplied COMPAS spreadsheet by examining representation, documenting cleaning decisions, constructing confusion matrices, changing the prediction threshold and comparing COMPAS with a simple logistic-regression model.
 
-The activities required me to:
-
-- distinguish bias from fairness, transparency and explainability;
-- identify proxy discrimination, feedback loops and fairness-metric conflicts;
-- explain why standard classification metrics do not transfer cleanly to generative AI;
-- separate substantive harm from procedural harm;
-- trace how an apparently neutral variable can reproduce structural inequality;
-- calculate and interpret accuracy, false-positive rate, false-negative rate, precision and recall; and
-- connect technical findings to the Australian AI Ethics Principles of fairness, transparency and explainability, contestability and accountability.
+Across the activities, I looked at how bias can enter through data, proxies and institutional practices, how different fairness measures can conflict, and why transparency and explainability matter when people need to understand or challenge an AI-assisted decision. I also looked at why governance methods need to change depending on the type of AI system being assessed.
 
 ## Key Concepts
 
@@ -26,6 +18,8 @@ The activities required me to:
 | Explainability | Information that helps a person understand why a particular output occurred. | Can a decision-maker or affected person make sense of and challenge the result? |
 
 These concepts overlap, but they are not interchangeable. A transparent system can disclose that it has unequal error rates and still be unfair. A statistically accurate system can still be procedurally harmful if a person receives no reason, review or meaningful way to challenge a decision.
+
+---
 
 ## Task 1 – Exploring and Cleaning the COMPAS Data
 
@@ -99,6 +93,8 @@ Native American defendants lost the largest proportion of records, but the group
 
 Cleaning did not solve the representation problem. It reduced the already very small Native American group to 13 records, which further lowers my confidence in any group-specific rate. This is why proportional change, absolute count and statistical uncertainty should be considered together.
 
+---
+
 ## Task 2 – Confusion Matrix and Error Rates
 
 I used the tutorial's stated threshold: **High** was treated as a positive prediction, while Low and Medium were treated as negative predictions. The results below use the 6,479 cleaned records.
@@ -164,6 +160,8 @@ Precision was similar for the two groups, but the error distribution was not. Af
 This does not reduce fairness to a single winning metric. When groups have different recorded base rates, calibration or similar precision can coexist with unequal false-positive and false-negative rates. The governance task is to identify which properties matter for the decision, make the trade-off visible and determine whether the remaining burden is legally and ethically acceptable.
 
 I did not interpret the Asian and Native American rates because their cleaned samples were only 31 and 13. Calculating a percentage is possible, but presenting it as a stable fairness finding would be misleading.
+
+---
 
 ## Optional Task 3 – A Simple Logistic-Regression Model
 
@@ -253,6 +251,8 @@ The four case studies point to a lifecycle rather than a one-time fairness check
 
 These controls connect directly to Australia's AI Ethics Principles. Transparency and explainability require responsible disclosure and reasonable information about outcomes. Contestability requires a timely way to challenge a significant AI-assisted decision. Fairness, accountability and human oversight make those protections operational rather than symbolic.
 
+---
+
 ## Week 8 Reflection
 
 This week changed how I think about the phrase "remove the bias."
@@ -271,10 +271,14 @@ A person affected by a criminal-risk score, fraud flag or tenant-screening resul
 
 The Gemini case added another lesson. Governance methods must match the type of system. Classification audits are valuable when predictions and outcomes can be clearly defined. Generative systems require broader contextual and representational evaluation because there is no single confusion matrix capable of measuring historical accuracy, cultural harm and usefulness at the same time.
 
+---
+
 ## Evidence
 
 - The workbook preserves the original `RAW DATA` and `Column Guide` sheets and adds formula-driven `Task 1`, `Task 2` and `Optional Model` sheets.
 - The four case-study analyses are based on the videos in the Week 8 Moodle Book. The Moodle link may require Federation University authentication.
+
+---
 
 ## References
 
