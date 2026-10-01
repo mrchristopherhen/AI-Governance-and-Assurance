@@ -10,7 +10,7 @@ The AI Governance Committee approved the new version with a specific fairness co
 
 I examined twelve months of monitoring results, compared the recruitment team's summary with the underlying figures, considered the effect of small samples and applied ISO/IEC 42001 Clause 10.2 to the findings. I then used the owners and escalation arrangements proposed in Week 9 to explain who should act.
 
-I reached the end of the Week 10 Moodle lesson, with both completion requirements marked done: viewing the lesson and going through the activity to the end. This records lesson completion; portfolio assessment and tutor marks remain separate.
+---
 
 ## Task 1 – Comparing the Summary with the Monthly Data
 
@@ -106,6 +106,8 @@ I would retain the monthly rates and denominators, report all groups, connect co
 
 Source for the scenario, monthly figures and clause extracts: [Federation University, Learning activity – Topic 10](https://moodle.federation.edu.au/mod/lesson/view.php?id=9128317).
 
+---
+
 ## Task 2 – Trend or Noise?
 
 ### Group C in August
@@ -154,6 +156,8 @@ I would also record the Group C breach and review its three August cases, any co
 Saltbush should improve its monitoring design prospectively. It could retain monthly counts while using longer rolling windows for small groups, reporting uncertainty and preserving a route for individual complaints to trigger action. Any revised criterion should be justified and formally approved, with its effective date recorded. The original breaches should remain in the record.
 
 This connects with Week 5's monitoring-trigger exercise: a useful trigger must be sensitive to persistent harm without pretending that a percentage based on three applicants is a stable estimate.
+
+---
 
 ## Task 3 – Working Through ISO/IEC 42001 Clause 10.2
 
@@ -256,6 +260,8 @@ They should also specify how small groups are reviewed, how new locations and us
 
 Finally, Dev and Rob should use the register to check whether the same reporting weakness exists in other systems. Updating only the classifier would leave the broader management-system problem unresolved.
 
+---
+
 ## Task 4 – Escalating the Problem Through My Week 9 Policy
 
 I used my proposed Week 9 structure, rather than Kath's original draft. In that structure, Kath owns the recruitment classifier, Dev owns the AI policy, Rob monitors compliance, and the Governance Committee approves elevated uses and restart after a material incident.
@@ -282,6 +288,8 @@ My Week 9 section provided suspension authority, a reporting route, quarterly bo
 I would clarify that **Dev owns the consolidated board report**, supported by Rob's compliance findings and presented through Helen, with Rob able to escalate directly where needed.
 
 I would also propose that a confirmed breach of an approval condition is reported to the owner, Rob and Dev **on the working day it is identified**, with immediate containment where continued use creates unacceptable risk. The committee should approve and document this response rule. These are refinements to my policy, not claims that the original wording already specified them.
+
+---
 
 ## Task 5 – Fixing the Monitoring
 
@@ -310,7 +318,9 @@ The additional control is an independent review of the recruitment criteria and 
 
 Blinding reviewers to the model's recommendation reduces anchoring, but it does not replace this broader review of the assumptions built into the task.
 
-This is consistent with NIST's distinction between computational, human and systemic sources of bias: examining the model's measured outputs alone does not cover the whole problem. [NIST SP 1270](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270.pdf).
+This is consistent with NIST's distinction between computational, human and systemic sources of bias: examining the model's measured outputs alone does not cover the whole problem. [NIST SP 1270]
+
+---
 
 ## Week 10 Reflection
 
@@ -327,6 +337,8 @@ Clause 10.2 helped connect detection to action. Saltbush needs immediate contain
 This brings the earlier topics together. Risk classification helps determine the level of oversight. Human factors affect how people interpret and challenge AI. Fairness analysis provides evidence about outcomes. Governance assigns authority to act, and assurance checks whether the whole arrangement continues to work.
 
 The main lesson for me is that monitoring becomes useful when its findings reach the right people and change what the organisation does. A dashboard that collects data but hides deterioration is not providing that assurance.
+
+---
 
 ## References
 
