@@ -2,22 +2,23 @@
 
 ## Overview
 
-This lab extends the Saltbush recruitment case from [Week 4](../Week%204/README.md) and [Week 5](../Week%205/README.md). It examines how hiring in Dublin changes the legal scope, why removing protected attributes does not remove bias, and how provider and deployer responsibilities differ. The practical activity compares Content Credentials with Google's SynthID using the supplied Byzantine icon image.
+This week focused on how the EU AI Act applies to different AI systems and how the level of risk can change depending on how a system is used.
 
-**Course:** ITECH2119 – AI Governance and Assurance  
-**Analysis date:** 8 September 2026  
-**Evidence:** Live compliance-checker runs, image transformations and recorded detector responses.  
-**Completion boundary:** Written analysis, four checker runs and the watermark experiment are recorded below. SynthID survived the three completed transformed-image checks according to Gemini; the fourth returned a reported quota error. Defeating both detectors was not demonstrated. Tutor observation and the lab's in-session marks are not claimed.
+The activities continued with the Saltbush recruitment classifier from Week 4⁠￼ and Week 5⁠￼. This time, I looked at what changes when Saltbush uses the classifier for recruitment in Dublin, including whether the system falls within the scope of the EU AI Act and how the responsibilities of the provider and deployer differ.
 
-The legal analysis uses the AI Act together with its 2026 amendment. The checker is an aid to classification; its displayed wording and dates are not a current compliance certificate.
+I also looked more closely at whether removing protected attributes from an AI system is enough to prevent bias. I examined several features used by the Saltbush classifier that could still act as proxies for characteristics such as age, gender or socioeconomic position.
+
+The final activity moved away from recruitment and looked at AI-generated image provenance. Using the supplied Byzantine icon image, I compared Content Credentials with Google’s SynthID and tested how both responded when the image was resized, compressed, rotated or captured through a screenshot.
+
+Overall, the week showed that identifying an AI system as high risk is only the beginning of the governance process. The system’s purpose, where it is used, when legal obligations begin applying and the evidence available to support a claim all need to be considered separately.
 
 ---
 
-# Task 1 – Classify Saltbush's shortlisting system
+# Task 1 – Classify Saltbush's Shortlisting System
 
 ## Scope and role
 
-Saltbush bought and uses an unmodified classifier, so it is the **deployer**. The vendor supplying the classifier is the **provider**. A recruiter being able to override its recommendations does not stop the classifier from influencing access to employment.
+I classified Saltbush as the deployer because it bought and uses the classifier without modifying it. The vendor supplying the classifier is therefore the provider. A recruiter being able to override its recommendations does not stop the classifier from influencing access to employment.
 
 The relevant connection is that the classifier's output is used for recruitment in Dublin. Australian ownership and Sydney hosting do not remove it from scope: **Article 2(1)(c)** covers providers and deployers outside the EU where their system's output is used in the Union. The system ranks and evaluates applicants, making **Article 6(2), Annex III point 4(a)** the relevant high-risk route. [EU AI Act, Articles 2 and 6 and Annex III](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)
 
@@ -194,7 +195,7 @@ sips --rotate 7 -s format jpeg -s formatOptions 35 byzantine_icon.jpg --out icon
 
 For the screenshot trial, display the original at 260 pixels wide, take a browser screenshot and crop to its 260 × 282 image area. This trial combines display resampling, screenshot capture and JPEG re-saving; it does not isolate those effects individually.
 
-## Findings and reflection
+## Findings
 
 ### 1. Which detector was easier to defeat?
 
@@ -228,7 +229,7 @@ The optional Colab text-watermarking challenge was not performed.
 
 ---
 
-# Connecting the lab to the governance portfolio
+# Connecting the Lab to the Governance Portfolio
 
 | Week 5 governance area | Practical application from Week 6 |
 |---|---|
@@ -242,9 +243,21 @@ The optional Colab text-watermarking challenge was not performed.
 
 This is a conceptual connection to the [Week 5 portfolio](../Week%205/README.md), not a claim of ISO certification or an exact reproduction of every ISO requirement.
 
-The main learning is that **classification, legal timing and evidence are separate questions**. A high-risk label does not reveal which duties apply today. A fairness assurance needs output and data evidence, not just an input-column list. A detector's confident prose is not a substitute for an identifiable test result.
+---
 
-## Sources and evidence notes
+## Week 6 Reflection
+
+The main thing I learned this week is that classification, legal timing and evidence are separate questions. Identifying a system as high risk does not automatically tell me which obligations apply today or whether an organisation is already non-compliant. I still need to consider the system’s purpose, where it is being used, when the relevant requirements apply and what evidence is actually available.
+
+The Saltbush activity also reinforced something I found in Week 4: removing protected attributes does not automatically remove bias. Features such as employment gaps, qualification dates and postcode information can still act as proxies, so fairness needs to be tested using the system’s actual outcomes rather than relying on a list of excluded inputs.
+
+The watermarking activity was probably the most surprising part of the week. I expected the more destructive image transformations to eventually defeat the watermark, but SynthID was still reported as present in all three completed transformed-image checks. At the same time, the Content Credentials were much easier to remove through ordinary image processing. This showed me why assurance should not depend on a single signal or detector.
+
+Overall, this week strengthened my understanding that governance decisions need evidence behind them. A compliance checker can help classify a system and a detector can provide useful evidence, but neither should be treated as proof on its own.
+
+---
+
+## References
 
 - [Federation University Topic 6 lab](https://moodle.federation.edu.au/mod/lesson/view.php?id=9098743) supplies the fictional Saltbush and auction scenarios; institutional login is required.
 - [Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng) is read together with [Regulation (EU) 2026/1744](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744).
