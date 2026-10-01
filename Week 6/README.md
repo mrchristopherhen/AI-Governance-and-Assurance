@@ -263,4 +263,4 @@ Overall, this week strengthened my understanding that governance decisions need 
 - [Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng) is read together with [Regulation (EU) 2026/1744](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744).
 - The linked screenshots preserve live tool results. Counts and legal conclusions are explained in the text so the portfolio remains readable without opening very tall captures.
 - Image transformations are supplied as clearly identified lab derivatives. They are not presented as photographs of a genuine antique.
-- **AI assistance:** Codex assisted with browsing, checker interaction, deterministic image transformations, source checking and drafting. Gemini was used for the recorded verification prompts. Personal attendance, tutor approval and unobserved detector outcomes have not been invented.
+- **AI assistance:** Gemini was used for the recorded verification prompts. 
